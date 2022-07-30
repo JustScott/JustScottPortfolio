@@ -1,0 +1,92 @@
+//Colors
+$primary-color: #9058f6;
+$left-gradient: #4675fc; 
+$center-gradient: #008ce9;
+$right-gradient: #0095d2;
+$secondary-color: #37cbfb;
+
+$text-color: white;
+
+$gradient_bg: linear-gradient(to right, $primary-color, $secondary-color); 
+
+//Font Family
+$font-family: monospace, sans-serif;
+
+//Font Sizes
+$large-font: calc(1rem + 3.4vw);
+$medium-font: calc(.7rem + 2.7vw);
+$small-font: calc(.7rem + 1.3vw);
+
+
+
+body {
+	margin: 0;
+	height: 2000px;
+}
+
+.center_text {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.on_view_animate {
+    opacity: 0;
+    animation: on-view-animation .5s linear forwards;
+    
+    
+    @keyframes on-view-animation {
+        from {
+            opacity: 0;
+            transform: scale(.8);
+        }
+        to {
+            opacity: 1;
+            transform: scale(1);
+        }
+    }
+
+}
+.off_view_animate {
+    opacity: 0;
+    animation: off-view-animation .5s linear forwards;
+
+
+    @keyframes off-view-animation {
+        from {
+            opacity: 1;
+            transform: scale(1);
+        }
+        to {
+            opacity: 0;
+            transform: scale(.8);
+        }
+    }
+
+}
+
+@mixin flex-center() {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+@mixin button($bg-color, $text-color) {
+    display: block;
+    background-color: $bg-color;
+    color: $text-color;
+    border: none;
+    border-radius: .5rem;
+    padding: 10px 20px;
+    font: {
+        size: $small-font;
+    }
+    cursor: pointer;
+    transition-duration: .3s;
+    
+    &:hover {
+        background-color: $text-color;
+        color: $bg-color;
+    }
+}
+

@@ -1,0 +1,110 @@
+@import 'base.scss';
+
+
+/* Desktop */
+@media (min-width: 750px) {
+    .intro_container {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        justify-items: center;
+        align-items: center;
+        position: relative;
+        height: 70vh;
+        width: 75%; 
+        margin: auto;
+        margin-top: 180px;
+        border-radius: .5rem;
+        background-image: $gradient-bg;
+       
+        .intro_image {
+            width: 50%;
+            height: auto;
+            border-radius: .5rem;
+            display: block;
+            box-shadow: 8px 8px 10px;
+            transition-duration: .4s;
+         }
+         .intro_image:hover {
+            box-shadow: none;
+            transform: scale(0.97);
+         }
+
+        .text_button_container {
+            @include flex-center;
+            align-items: space-evenly;
+            flex-direction: column;
+
+            .intro_text {
+                width: 90%;
+                text-align: center;
+                font: {
+                    size: $small-font;
+                }
+                color: $text-color;
+            }
+
+            .intro_button {
+                @include button($text-color, $left-gradient);
+            }
+
+        }
+    }
+
+}
+
+/* Mobile */
+@media (max-width: 750px) {
+    .intro_container {
+        display: grid;
+        grid-template-rows: 1fr 1fr;
+        justify-items: center;
+        align-items: center;
+        position: relative;
+        height: 76vh;
+        min-height: 470px;
+        width: 85%;
+        margin: auto;
+        margin-top: 130px;
+        border-radius: .5rem;
+        background-image: $gradient-bg;
+
+        .intro_image {
+            width: 170px;
+            height: auto;
+            margin-top: 5%;
+            border-radius: .5rem;
+            display: block;
+            box-shadow: 8px 8px 10px;
+            transition-duration: .4s;
+         }
+         .intro_image:hover {
+            box-shadow: none;
+            transform: scale(0.97);
+         }
+
+        .text_button_container {
+            @include flex-center;
+            align-items: space-evenly;
+            flex-direction: column;
+
+            .intro_text {
+                border-top: 2px solid $text-color;
+                border-bottom: 2px solid $text-color;
+                padding: 10px 0;
+                width: 85%;
+                text-align: center;
+                font: {
+                    size: calc($medium-font * .8);
+                }
+                color: $text-color;
+            }
+
+            .intro_button {
+                @include button($text-color, $left-gradient);
+            }
+
+        }
+    }
+
+}
+

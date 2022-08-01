@@ -17,17 +17,19 @@ $large-font: calc(1rem + 3.4vw);
 $medium-font: calc(.7rem + 2.7vw);
 $small-font: calc(.7rem + 1.3vw);
 
+$mobile_to_desktop_width: 750px;
+
 
 
 body {
-	margin: 0;
-	height: 2000px;
+    margin: 0;
+    height: 2000px;
 }
 
 .center_text {
-	display: flex;
-	justify-content: center;
-	align-items: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .on_view_animate {
@@ -89,4 +91,13 @@ body {
         color: $bg-color;
     }
 }
+
+@mixin font($size, $weight) {
+    font: {
+        size: calc($size);
+        family: $font-family;
+        weight: $weight;
+    }
+}
+
 

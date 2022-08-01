@@ -1,4 +1,4 @@
-/* Impot Modules */
+/* Import Modules */
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import { BrowserRouter, Routes, Route } from "react-router-dom";
@@ -9,10 +9,13 @@ import Home from './components/Home.js';
 import NoPage from './components/NoPage.js';
 
 /* Import Scripts */
-import animateOnView from './scripts/inViewAnimation.js';
+import base from './scripts/inViewAnimation.js';
 
 /* Import Styles */
 import './static/scss/index.scss'
+
+const animateOnView = base.animateOnView;
+const childOpacityToZero = base.childOpacityToZero; 
 
 
 class App extends React.Component {
@@ -24,6 +27,7 @@ class App extends React.Component {
 	}
 
 	componentDidMount() {
+        childOpacityToZero();
         animateOnView();
         window.addEventListener('scroll', animateOnView)
     }
@@ -33,9 +37,9 @@ class App extends React.Component {
 			<>
 				<BrowserRouter>
       				<Routes>
-						<Route path="/" element={<Layout />}>
-					  		<Route index element={<Home />} />
-					  		<Route path="*" element={<NoPage />} />
+						<Route path="/" element={<Layout />}> {/* Root Directory*/}
+					  		<Route index element={<Home />} /> {/* Initial Directory */}
+					  		<Route path="*" element={<NoPage />} /> {/* Catch-All for 404 errors */}
 						</Route>
 					</Routes>
 				</BrowserRouter>
@@ -46,3 +50,5 @@ class App extends React.Component {
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(<App />);
+
+

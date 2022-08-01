@@ -1,12 +1,27 @@
 /*
+ * Give all children opacity: 0; right away to make the on view
+ *   animations work immediately
+ */
+function childOpacityToZero() {
+    let root = document.querySelector('#root');
+    let children = root.children;
+    for (let i=0;i<children.length;i++) {
+        let child = children[i];
+        child.style.opacity = '0';
+        console.log(child);
+    }
+}
+
+/*
  * Checks if the element is in the users view
  */
 function checkInView(element) {
     let pageHeight = window.innerHeight;
     let elementTop = element.getBoundingClientRect().top;
     let elementBottom = element.getBoundingClientRect().bottom;
+    let elementHeight = element.getBoundingClientRect().height;
 
-    return (elementBottom > 0 && elementTop <= pageHeight); 
+    return (elementBottom > 0 && elementTop <= (pageHeight - (elementHeight*.9))); 
 }
 
 /*
@@ -40,4 +55,5 @@ function animateOnView() {
     } 
 }
 
-module.exports = animateOnView;
+
+module.exports = { animateOnView, childOpacityToZero };

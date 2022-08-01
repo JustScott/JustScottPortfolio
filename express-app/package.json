@@ -1,0 +1,29 @@
+{
+  "scripts": {
+    "start": "nodemon server.js"
+  },
+  "dependencies": {
+    "express": "^4.18.1",
+    "nodemon": "^2.0.19"
+  },
+  "name": "express-app",
+  "version": "1.0.0",
+  "description": "The express backend for the JustScottPortfolio website",
+  "main": "server.js",
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JustScott/JustScottPortfolio.git"
+  },
+  "keywords": [
+    "express",
+    "api",
+    "portfolio"
+  ],
+  "author": "JustScott",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/JustScott/JustScottPortfolio/issues"
+  },
+  "homepage": "https://github.com/JustScott/JustScottPortfolio#readme"
+}

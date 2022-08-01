@@ -1,8 +1,50 @@
 @import 'base.scss';
 
+/* All Screen Sizes */
+@media (min-width: 0) {
+    .skill_container_flipped {
+        grid-template-columns: 2fr 1fr !important;
+    }
+    .skill_container {
+        display: grid;
+        grid-template-columns: 1fr 2fr;
+        justify-items: center;
+        align-items: center;
+        width: 60%;
+        margin: auto;
+        margin-top: 200px;
+
+        img {
+            width: 60%;
+
+        }
+        .skill_explainer_container {
+            width: 100%;
+            color: $center-gradient;
+
+            h1 {
+                display: block;
+                margin: 0 auto;
+                width: 70%;
+                text-align: center;
+                @include font($medium-font, bold);
+                border-bottom: 2px solid $center-gradient;
+            }
+            p { 
+                text-align: center;
+                @include font(calc($small-font - 5px), none);
+                color: black;
+            }
+        }
+    }
+    .skill_container_double {
+        grid-template-columns: 1fr 3fr 1fr;
+        width: 90%;
+    }
+}
 
 /* Desktop */
-@media (min-width: 750px) {
+@media (min-width: $mobile-to-desktop-width) {
     .intro_container {
         display: grid;
         grid-template-columns: 1fr 1fr;
@@ -49,11 +91,10 @@
 
         }
     }
-
 }
 
 /* Mobile */
-@media (max-width: 750px) {
+@media (max-width: $mobile-to-desktop-width) {
     .intro_container {
         display: grid;
         grid-template-rows: 1fr 1fr;
@@ -82,7 +123,7 @@
             transform: scale(0.97);
          }
 
-        .text_button_container {
+         .text_button_container {
             @include flex-center;
             align-items: space-evenly;
             flex-direction: column;
@@ -102,9 +143,24 @@
             .intro_button {
                 @include button($text-color, $left-gradient);
             }
-
         }
     }
+    .skill_container {
+        width: 80%;
+        margin-top: 75px;
+        grid-gap: 40px;
 
+        img {
+            width: 80%;
+        }
+
+        .skill_explainer_container {
+            width: 130%;
+        }
+    }
+    .skill_container_double {
+        grid-template-columns: 1fr 2fr 1fr;
+        width: 100%;
+    }
 }
 

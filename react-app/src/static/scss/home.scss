@@ -15,7 +15,7 @@
         margin-top: 200px;
 
         img {
-            width: 60%;
+            width: 40%;
 
         }
         .skill_explainer_container {
@@ -27,12 +27,12 @@
                 margin: 0 auto;
                 width: 70%;
                 text-align: center;
-                @include font($medium-font, bold);
+                @include font(calc($medium-font - 10px), bold);
                 border-bottom: 2px solid $center-gradient;
             }
             p { 
                 text-align: center;
-                @include font(calc($small-font - 5px), none);
+                @include font(calc($small-font - 15px), none);
                 color: black;
             }
         }
@@ -41,10 +41,62 @@
         grid-template-columns: 1fr 3fr 1fr;
         width: 90%;
     }
+
+    .certifications_section {
+        display: block;
+        width: 80%;
+        margin: auto;
+        margin-top: 200px;
+
+        h1 {
+            text-align: center;
+            color: $center-gradient;
+            @include font(calc($medium_font - 10px), bold);
+        }
+
+        .certifications_container {
+            @include flex-center;
+            flex-wrap: wrap;
+
+            .certification {
+                @include flex-center;
+                flex-direction: column;
+                width: 20%;
+                height: calc(80px + 18vw);
+                background-color: $center-gradient;
+                margin: 3%;
+                border-radius: .5rem;
+                box-shadow: 5px 5px 5px; 
+                transition-duration: .3s;
+
+                &:hover {
+                    transform: scale(.99);
+                    box-shadow: none;
+                }
+                
+                img {
+                    display: block;
+                    width: 35%;
+                    margin: 50px auto;
+                    margin-top: -20px;
+                }
+
+                h2 {
+                    text-align: center;
+                    color: $text-color;
+                    font: {
+                        size: $small_font;
+                        weight: bold;
+                        family: Helvetica;
+                    }
+                }
+            }
+        }
+    }
 }
 
 /* Desktop */
-@media (min-width: $mobile-to-desktop-width) {
+@media (min-width: calc($mobile-to-desktop-width + 1px)) {
     .intro_container {
         display: grid;
         grid-template-columns: 1fr 1fr;
@@ -157,11 +209,50 @@
 
         .skill_explainer_container {
             width: 130%;
+
+            h1 {
+                display: block;
+                margin: 0 auto;
+                width: 70%;
+                text-align: center;
+                @include font(calc($medium-font), bold);
+                border-bottom: 2px solid $center-gradient;
+            }
+
+            p {
+                text-align: center;
+                @include font(calc($small-font - 5px), none);
+                color: black;
+            }
+
         }
     }
     .skill_container_double {
         grid-template-columns: 1fr 2fr 1fr;
         width: 100%;
+    }
+    .skill_container img {
+        width: 60% !important;
+    }
+
+    .certifications_section {
+        width: 90% !important;
+        margin-top: 100px !important;
+ 
+        h1 {
+            font-size: calc($small-font + 4px);
+        }
+
+     }
+
+    .certification {
+        width: 27% !important;
+        height: 40vw !important;
+    
+        img {
+            width: 45% !important;
+            margin: auto !important;
+        }
     }
 }
 

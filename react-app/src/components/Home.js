@@ -11,12 +11,16 @@ export default class Home extends React.Component {
 		};
 	}
 
+    componentDidMount() {
+        document.title = 'Home';
+    }
 
 	render() {
 		return (
 			<>
 			    <Intro />
                 <Skills />
+                <Certifications />
             </>
 		);
 	}
@@ -120,3 +124,34 @@ function SkillDual(props) {
         </div>
     );
 }
+
+/*
+ * Certifications Section
+ */
+function Certifications(props) {
+    return (
+        <div className='certifications_section'>
+            <h1>Certifications</h1>
+            <div className='certifications_container'>
+                <CertificationContent title='AWS' imgPath='aws_logo.png' imgAlt='AWS Logo'/>
+                <CertificationContent title='AWS' imgPath='aws_logo.png' imgAlt='AWS Logo'/>
+                <CertificationContent title='AWS' imgPath='aws_logo.png' imgAlt='AWS Logo'/>
+            </div>
+        </div>
+    );
+}
+
+/*
+ * The data within each individual Certification
+ */
+function CertificationContent(props) {
+   return ( 
+        <div className="certification">
+            <img src={props.imgPath} alt={props.imgAlt} />
+            <h2>{props.title}</h2>
+        </div>
+   );
+}
+
+
+

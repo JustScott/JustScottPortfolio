@@ -46,7 +46,7 @@
         display: block;
         width: 80%;
         margin: auto;
-        margin-top: 200px;
+        margin-top: -200px;
 
         h1 {
             text-align: center;
@@ -187,9 +187,7 @@
                 padding: 10px 0;
                 width: 85%;
                 text-align: center;
-                font: {
-                    size: calc($medium-font * .8);
-                }
+                font-size: calc($medium-font * .8);
                 color: $text-color;
             }
 
@@ -237,8 +235,8 @@
 
     .certifications_section {
         width: 90% !important;
-        margin-top: 100px !important;
- 
+        margin-top: -300px !important;
+
         h1 {
             font-size: calc($small-font + 4px);
         }

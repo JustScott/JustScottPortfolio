@@ -11,7 +11,7 @@
 }
 
 /* Desktop */
-@media (min-width: $mobile-to-desktop-width) {
+@media (min-width: calc($mobile-to-desktop-width + 1px)) {
 
 }
 

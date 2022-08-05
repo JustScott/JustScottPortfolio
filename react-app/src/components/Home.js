@@ -133,9 +133,9 @@ function Certifications(props) {
         <div className='certifications_section'>
             <h1>Certifications</h1>
             <div className='certifications_container'>
+                <CertificationContent title='Example' imgPath='aws_logo.png' imgAlt='AWS Logo'/>
                 <CertificationContent title='AWS' imgPath='aws_logo.png' imgAlt='AWS Logo'/>
-                <CertificationContent title='AWS' imgPath='aws_logo.png' imgAlt='AWS Logo'/>
-                <CertificationContent title='AWS' imgPath='aws_logo.png' imgAlt='AWS Logo'/>
+                <CertificationContent title='Example' imgPath='aws_logo.png' imgAlt='AWS Logo'/>
             </div>
         </div>
     );
@@ -152,6 +152,3 @@ function CertificationContent(props) {
         </div>
    );
 }
-
-
-

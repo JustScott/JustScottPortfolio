@@ -8,26 +8,41 @@ export default class Resume extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-
+            displayResume: 'none',
         };
     }
 
     render() {
         return (
-            <ResumeContainer />
+            <>
+                <div 
+                    className='resume_background' 
+                    id='resume'  
+                    style={{opacity: 1,}} 
+                    onClick={() => {
+                        let resume = document.querySelector('#resume');
+                        resume.style.display = 'none';
+                    }}
+                    >
+
+                    <div className='resume'>
+                        <HeaderContainer />
+                        <FloatingExplainers />
+                    </div>
+                </div>
+            </>
         );
     };
 }
 
-function Container(props) {
-    return (
-        
-    );
-}
 
-function HeaderSection(props) {
+function HeaderContainer(props) {
     return (
-
+        <div className='header_container'>
+            <Contact />
+            <Picture imgPath='headshot.jpg' imgAlt='My headshot'/>
+            <WebsiteLink />
+        </div>
     );
     
     function Contact(props) {
@@ -45,12 +60,51 @@ function HeaderSection(props) {
     }
     function Picture(props) {
         return (
-
+            <>
+                <img src={props.imgPath} alt={props.imgAlt} className='headshot_img'/>
+            </>
         );
     }
-    function Links(props) {
+    function WebsiteLink(props) {
         return (
-
+            <div className='link_container'>
+                <a href='http://www.justscott.me'>My Website</a>
+                <img src='my_website_qr.png' alt='QR Code To My Website'/>
+            </div>
         );
     }
+}
+
+function FloatingExplainers() {
+    return (
+        <div className='floating_explainers_container'>
+            <FloatingCertifications />
+            <FloatingAbout />
+            <FloatingExperience />
+        </div>
+    );
+}
+
+function FloatingCertifications() {
+    return (
+        <div className='certifications_container'>
+            
+        </div>
+    );
+}
+
+function FloatingAbout() {
+    return (
+        <div className='about_container'>
+
+        </div>
+    );
+}
+
+function FloatingExperience() {
+    return (
+        <div className='experience_container'>
+            
+        </div>
+    );
 }

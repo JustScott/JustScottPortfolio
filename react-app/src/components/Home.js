@@ -1,6 +1,9 @@
 /* Import Modules */
 import React from 'react';
 
+/* Import Components */
+import Resume from './Resume';
+
 /* Import Styles */
 import '../static/scss/home.scss';
 
@@ -8,17 +11,19 @@ export default class Home extends React.Component {
 	constructor(props) {
 		super(props);
 		this.state = {
+            resumeElementDisplay: 'none',
 		};
 	}
 
     componentDidMount() {
         document.title = 'Home';
     }
-
+    
 	render() {
 		return (
 			<>
-			    <Intro />
+                <Resume />
+			    <Intro displayResume={(data) => this.setState({ data })}/>
                 <Skills />
                 <Certifications />
             </>
@@ -36,7 +41,12 @@ function Intro(props) {
             <img className='intro_image' src='bodyshot.jpg' alt='Portrait of Me'></img>
             <div className='text_button_container'>
                 <p className='intro_text'> My names Scott, I'm a self-taught MERN Stack Web Developer.</p>
-                <button className='intro_button'>Resume</button>
+                <button 
+                    className='intro_button' 
+                    onClick={() => {
+                        let resume = document.querySelector('#resume');
+                        resume.style.display = 'flex';
+                    }}>Resume</button>
             </div>
         </div>
     );
@@ -51,25 +61,25 @@ function Skills(props) {
         <>
             <Skill 
                 title='React' 
-                about=<p><b>React</b> is one of my favorite web development tools, because of its efficiency and elegance</p>
+                about={<p><b>React</b> is one of my favorite web development tools, because of its efficiency and elegance</p>}
                 imgPath='react_logo.png'
                 imgAlt='The react logo'
             />
             <SkillFlipped
                 title='Node.JS'
-                about=<p><b>Node.JS</b> allows me to transfer my javascript skills to the backend, utilizing powerful tools like <b>Express</b></p>
+                about={<p><b>Node.JS</b> allows me to transfer my javascript skills to the backend, utilizing powerful tools like <b>Express</b></p>}
                 imgPath='nodejs_logo.png'
                 imgAlt='The NodeJS logo'
             />
             <Skill
                 title='Sass'
-                about=<p>Vanilla CSS can get messy fast, thats why I use <b>Sass</b>, a css pre-processer that lets me reuse my styles in a programmatic way</p>
+                about={<p>Vanilla CSS can get messy fast, thats why I use <b>Sass</b>, a css pre-processer that lets me reuse my styles in a programmatic way</p>}
                 imgPath='sass_logo.png'
                 imgAlt='The Sass logo'
             />
             <SkillDual 
                 title='Text Editors'
-                about=<p>My preffered text editor is <b>Vim</b> because of its minimalistic style, but <b>VSCode</b> can make development much more quick and visually pleasing</p>
+                about={<p>My preffered text editor is <b>Vim</b> because of its minimalistic style, but <b>VSCode</b> can make development much more quick and visually pleasing</p>}
                 imgPath='vscode_logo.png'
                 imgPath2='vim_logo.png'
                 imgAlt='The VSCode logo'
@@ -88,7 +98,7 @@ function Skill(props) {
             <img src={props.imgPath} alt={props.imgAlt} />
             <div className='skill_explainer_container'>
                 <h1>{props.title}</h1>
-                <p>{props.about}</p>
+                {props.about}
             </div>
         </div>
     );
@@ -102,7 +112,7 @@ function SkillFlipped(props) {
         <div className='skill_container skill_container_flipped'>
             <div className='skill_explainer_container'>
                 <h1>{props.title}</h1>
-                <p>{props.about}</p>
+                {props.about}
             </div>
             <img src={props.imgPath} alt={props.imgAlt} />
         </div>
@@ -118,7 +128,7 @@ function SkillDual(props) {
             <img src={props.imgPath} alt={props.imgAlt} />
             <div className='skill_explainer_container'>
                 <h1>{props.title}</h1>
-                <p>{props.about}</p>
+                {props.about}
             </div>
             <img src={props.imgPath2} alt={props.imgAlt} />
         </div>

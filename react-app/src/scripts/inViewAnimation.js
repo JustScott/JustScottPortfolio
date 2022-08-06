@@ -8,7 +8,6 @@ function childOpacityToZero() {
     for (let i=0;i<children.length;i++) {
         let child = children[i];
         child.style.opacity = '0';
-        console.log(child);
     }
 }
 

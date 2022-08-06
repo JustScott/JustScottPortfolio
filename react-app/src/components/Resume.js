@@ -88,15 +88,45 @@ function FloatingExplainers() {
 function FloatingCertifications() {
     return (
         <div className='certifications_container'>
-            
+            <p className='certifications_title'>Certifications</p>
+            <Certification 
+                title='AWS Cloud Practitioner' 
+                imgPath='aws_logo.png' 
+                imgAlt='The AWS Logo'
+            />
+            <Certification 
+                title='AWS Cloud Practitioner' 
+                imgPath='aws_logo.png' 
+                imgAlt='The AWS Logo'
+            />
+            <Certification 
+                title='AWS Cloud Practitioner' 
+                imgPath='aws_logo.png' 
+                imgAlt='The AWS Logo'
+            />
         </div>
     );
+
+    function Certification(props) {
+        return (
+            <div className='single_certification_container'>
+                <img src={props.imgPath} alt={props.imgAlt}/>
+                <p>{props.title}</p>
+            </div>
+        );
+    }
 }
+
 
 function FloatingAbout() {
     return (
         <div className='about_container'>
-
+            <p className='about_title'>About Me</p>
+            <p className='about_text'>
+                This is some filler text to show what this about me text
+                would look like in this container, to get and estimate
+                of how many words will fit in here.
+            </p>
         </div>
     );
 }

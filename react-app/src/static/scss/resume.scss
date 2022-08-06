@@ -85,7 +85,7 @@
         grid-template-columns: repeat(3, 1fr);
         grid-gap: 40px;
         width: 85%;
-        height: 270px;
+        height: 280px;
         margin: auto;
         padding: 60px 0 30px 0;
 
@@ -97,11 +97,62 @@
         }
 
         .certifications_container {
-        }   
+            @include flex-center;
+            flex-direction: column;
+        
+            .certifications_title {
+                display: block;
+                width: 90%;
+                margin: auto;
+                margin-top: 10px;
+                padding: 5px;
+                text-align: center;
+                @include font(1.3rem, bold);
+                color: white;
+                border-bottom: 2px solid white;
+            }
+
+            .single_certification_container {
+                @include flex-center;
+                flex-direction: row;
+                border: 2px solid white;
+                width: 90%;
+                height: 50px;
+                margin: 5px;
+
+                img {
+                    width: 25%;
+                    margin: 20px;
+                }
+                p {
+                    @include font(.8rem, bold);
+                    color: white;
+                }
+            }
+        }
         
         .about_container {
-            margin-top: -20px
+            margin-top: -20px;
+            color: white;
 
+            .about_title {
+                display: block;
+                width: 90%;
+                margin: auto;
+                margin-top: 10px;
+                padding: 5px;
+                text-align: center;
+                @include font(1.3rem, bold);
+                border-bottom: 2px solid white;
+            }
+            .about_text {
+                @include font(1rem, light);
+                display: block;
+                width: 95%;
+                margin: auto;
+                padding: 10px;
+                text-align: center;
+            }
         }
 
         .experience_container {

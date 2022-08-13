@@ -12,7 +12,7 @@
 
 #### Backend
 * <a href='https://nodejs.org/en/'>Node.JS</a> - A javascript run-time for javascript on the backend
-* <a href='https://expressjs.com/'>Express</a> - A node library for handling server API's 
+* <a href='https://expressjs.com/'>Express</a> - A node library for handling server API's
 
 #### Configurations
 * <a href='https://www.docker.com/'>Docker</a> - Container for my project

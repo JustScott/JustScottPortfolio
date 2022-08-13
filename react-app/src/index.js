@@ -9,13 +9,8 @@ import Home from './components/Home.js';
 import NoPage from './components/NoPage.js';
 
 /* Import Scripts */
-import base from './scripts/inViewAnimation.js';
-
-/* Import Styles */
-import './static/scss/index.scss'
-
-const animateOnView = base.animateOnView;
-const childOpacityToZero = base.childOpacityToZero; 
+import animations from './scripts/inViewAnimation.js';
+import baseScripts from './scripts/base.js';
 
 
 class App extends React.Component {
@@ -27,9 +22,12 @@ class App extends React.Component {
 	}
 
 	componentDidMount() {
-        childOpacityToZero();
-        animateOnView();
-        window.addEventListener('scroll', animateOnView)
+        animations.childOpacityToZero();
+        animations.animateOnView();
+        window.addEventListener('scroll', animations.animateOnView)
+
+		// <Tab> no longer leaves text area when clicked
+		baseScripts.fixTextareaBehavior();
     }
 
 	render() {
@@ -50,5 +48,3 @@ class App extends React.Component {
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(<App />);
-
-

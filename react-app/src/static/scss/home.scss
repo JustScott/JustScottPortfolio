@@ -1,256 +1,101 @@
-@import 'base.scss';
+@import 'base.scss'; 
 
-/* All Screen Sizes */
-@media (min-width: 0) {
-    .skill_container_flipped {
-        grid-template-columns: 2fr 1fr !important;
-    }
-    .skill_container {
-        display: grid;
-        grid-template-columns: 1fr 2fr;
-        justify-items: center;
-        align-items: center;
-        width: 60%;
-        margin: auto;
-        margin-top: 200px;
 
-        img {
-            width: 40%;
-
-        }
-        .skill_explainer_container {
-            width: 100%;
-            color: $center-gradient;
-
-            h1 {
-                display: block;
-                margin: 0 auto;
-                width: 70%;
-                text-align: center;
-                @include font(calc($medium-font - 10px), bold);
-                border-bottom: 2px solid $center-gradient;
-            }
-            p { 
-                text-align: center;
-                @include font(calc($small-font - 15px), none);
-                color: black;
-            }
-        }
-    }
-    .skill_container_double {
-        grid-template-columns: 1fr 3fr 1fr;
-        width: 90%;
-    }
-
-    .certifications_section {
-        display: block;
+/* Mobile */
+@media (max-width: $mobile_width) {
+    .home_about_container {
+        @include flex-center;
+        flex-direction: column;
         width: 80%;
-        margin: auto;
-        margin-top: -200px;
+        max-width: 350px;
+        margin: 30px auto;
+        background-color: $primary;
+        border-radius: .5rem;
+	
+        img {
+            width: 55%;
+            max-width: 140px;
+            margin: 10px;
+            box-shadow: 7px 7px 10px;
+            transition-duration: .4s;
+            border-radius: .5rem;
 
-        h1 {
-            text-align: center;
-            color: $center-gradient;
-            @include font(calc($medium_font - 10px), bold);
+            &:hover {
+		        box-shadow: none;
+		        transform: scale(.98);
+            }
         }
-
-        .certifications_container {
+        .text_side {
             @include flex-center;
-            flex-wrap: wrap;
+            flex-direction: column;
+            width: 80%;
 
-            .certification {
-                @include flex-center;
-                flex-direction: column;
-                width: 20%;
-                height: calc(80px + 18vw);
-                background-color: $center-gradient;
-                margin: 3%;
-                border-radius: .5rem;
-                box-shadow: 5px 5px 5px; 
-                transition-duration: .3s;
+            .desktop_about_text {display: none;}
+            .mobile_about_text {
+                font-size: calc($small-font + 1px);
+                text-align: center;
+                color: $text;
+                padding: 10px 0;
+                border: 1px solid $text;
+                border-left:none;
+                border-right: none;
+            }
 
-                &:hover {
-                    transform: scale(.99);
-                    box-shadow: none;
-                }
-                
-                img {
-                    display: block;
-                    width: 35%;
-                    margin: 50px auto;
-                    margin-top: -20px;
-                }
-
-                h2 {
-                    text-align: center;
-                    color: $text-color;
-                    font: {
-                        size: $small_font;
-                        weight: bold;
-                        family: Helvetica;
-                    }
-                }
+            button {
+                @include button($text, $primary);
+                font-size: calc($medium-font - 2px);
+                padding: 8px 15px;
+                margin-top: 6px;
+                margin-bottom: 16px;
             }
         }
     }
 }
 
 /* Desktop */
-@media (min-width: calc($mobile-to-desktop-width + 1px)) {
-    .intro_container {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        justify-items: center;
-        align-items: center;
-        position: relative;
-        height: 70vh;
-        width: 75%; 
-        margin: auto;
-        margin-top: 180px;
-        border-radius: .5rem;
-        background-image: $gradient-bg;
-       
-        .intro_image {
+@media (min-width: $desktop_width) {
+    .home_about_container {
+		display: flex;
+		flex-direction: row;
+		justify-content: space-evenly;
+		align-items: center;
+		width: 65%;
+		height: 600px;
+		margin: 3vw auto;
+		margin-top: 5vw;
+		color: $primary;
+
+	    img {
+            display: block;
+            width: 25vw;
+            max-width: 350px;
+            box-shadow: 10px 10px 15px;
+            transition-duration: .4s;
+
+	        &:hover {
+		        box-shadow: none;
+		        transform: scale(.98);
+            }
+        }
+	    .text_side {
+            text-align: center;
             width: 50%;
-            height: auto;
-            border-radius: .5rem;
-            display: block;
-            box-shadow: 8px 8px 10px;
-            transition-duration: .4s;
-         }
-         .intro_image:hover {
-            box-shadow: none;
-            transform: scale(0.97);
-         }
-
-        .text_button_container {
-            @include flex-center;
-            align-items: space-evenly;
-            flex-direction: column;
-            margin-left: -20%;
-
-            .intro_text {
-                width: 80%;
-                text-align: center;
-                font: {
-                    size: $small-font;
-                }
-                color: $text-color;
+            max-width: 500px;
+            margin-left: 10%;
+            align-self: center;	
+        
+            .mobile_about_text {display: none;}
+	        .desktop_about_text {
+                @include font($medium-font, bold);
+                font-weight: bold;
+                font-size: calc(.6rem + .8vw);
+                color: $primary;
             }
-
-            .intro_button {
-                @include button($text-color, $left-gradient);
+        
+	        button {
+                @include button($contrast, $text);
+                margin-top: 40px;
             }
-
         }
     }
 }
-
-/* Mobile */
-@media (max-width: $mobile-to-desktop-width) {
-    .intro_container {
-        display: grid;
-        grid-template-rows: 1fr 1fr;
-        justify-items: center;
-        align-items: center;
-        position: relative;
-        height: 76vh;
-        min-height: 470px;
-        width: 85%;
-        margin: auto;
-        margin-top: 130px;
-        border-radius: .5rem;
-        background-image: $gradient-bg;
-
-        .intro_image {
-            width: 170px;
-            height: auto;
-            margin-top: 5%;
-            border-radius: .5rem;
-            display: block;
-            box-shadow: 8px 8px 10px;
-            transition-duration: .4s;
-         }
-         .intro_image:hover {
-            box-shadow: none;
-            transform: scale(0.97);
-         }
-
-         .text_button_container {
-            @include flex-center;
-            align-items: space-evenly;
-            flex-direction: column;
-
-            .intro_text {
-                border-top: 2px solid $text-color;
-                border-bottom: 2px solid $text-color;
-                padding: 10px 0;
-                width: 85%;
-                text-align: center;
-                font-size: calc($medium-font * .8);
-                color: $text-color;
-            }
-
-            .intro_button {
-                @include button($text-color, $left-gradient);
-            }
-        }
-    }
-    .skill_container {
-        width: 80%;
-        margin-top: 75px;
-        grid-gap: 40px;
-
-        img {
-            width: 80%;
-        }
-
-        .skill_explainer_container {
-            width: 130%;
-
-            h1 {
-                display: block;
-                margin: 0 auto;
-                width: 70%;
-                text-align: center;
-                @include font(calc($medium-font), bold);
-                border-bottom: 2px solid $center-gradient;
-            }
-
-            p {
-                text-align: center;
-                @include font(calc($small-font - 5px), none);
-                color: black;
-            }
-
-        }
-    }
-    .skill_container_double {
-        grid-template-columns: 1fr 2fr 1fr;
-        width: 100%;
-    }
-    .skill_container img {
-        width: 60% !important;
-    }
-
-    .certifications_section {
-        width: 90% !important;
-        margin-top: -300px !important;
-
-        h1 {
-            font-size: calc($small-font + 4px);
-        }
-
-     }
-
-    .certification {
-        width: 27% !important;
-        height: 40vw !important;
-    
-        img {
-            width: 45% !important;
-            margin: auto !important;
-        }
-    }
-}
-

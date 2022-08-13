@@ -6,12 +6,6 @@ import '../static/scss/nopage.scss';
 
 
 export default class NoPage extends React.Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-        };
-    }
-
     componentDidMount() {
         document.title = 'You\'re Lost';
     }

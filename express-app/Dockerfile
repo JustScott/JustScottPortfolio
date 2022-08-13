@@ -1,13 +1,13 @@
 FROM node
 
-WORKDIR /code
+WORKDIR /express-app
 
-ENV PORT 3000
+ENV PORT 5000
 
-copy package.json /code/package.json
+COPY package.json /express-app/package.json
 
 RUN npm install
 
-COPY . /code
+COPY . /express-app
 
-CMD ["npm","start"]
+CMD npm run-script run

@@ -1,3 +1,11 @@
+const noAnimation = [
+    'navbar',
+    'contact_form_background',
+    'contact_form',
+    'success_message',
+    'error_message',
+];
+
 /*
  * Give all children opacity: 0; right away to make the on view
  *   animations work immediately
@@ -7,8 +15,10 @@ function childOpacityToZero() {
     let children = root.children;
     for (let i=0;i<children.length;i++) {
         let child = children[i];
+        if (noAnimation.indexOf(child.id) > -1) {
+            continue;
+        }
         child.style.opacity = '0';
-        console.log(child);
     }
 }
 
@@ -32,8 +42,12 @@ function checkInView(element) {
 function animateOnView() {
     let root = document.querySelector('#root');
     let children = root.children;
+
     for (let i=0;i<children.length;i++) {
         let child = children[i];
+        if (noAnimation.indexOf(child.id) > -1) {
+            continue;
+        }
         /*
         If child on screen and not already given animation
           -> Add load-in animation

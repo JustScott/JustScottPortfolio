@@ -1,41 +1,42 @@
-//Colors
-$primary-color: #9058f6;
-$left-gradient: #4675fc; 
-$center-gradient: #008ce9;
-$right-gradient: #0095d2;
-$secondary-color: #37cbfb;
-
-$text-color: white;
-
-$gradient_bg: linear-gradient(to right, $primary-color, $secondary-color); 
+// Colors
+:root {
+    --bg-color:#C8C8C8;
+    --primary-color:#275a77;
+    --complimentry-color: #c0c0c0;
+    --contrast-color:#ff6700;
+    --text-color:#FFFFFF;
+}
+$bg: var(--bg-color);
+$primary: var(--primary-color);
+$complimentry: var(--complimentry-color);
+$contrast: var(--contrast-color);
+$text: var(--text-color);
 
 //Font Family
-$font-family: monospace, sans-serif;
+$font-family: auto;
 
 //Font Sizes
-$large-font: calc(1rem + 3.4vw);
-$medium-font: calc(.7rem + 2.7vw);
-$small-font: calc(.7rem + 1.3vw);
+$large-font: calc(.8rem + 1vw);
+$medium-font: calc(.7rem + .9vw);
+$small-font: calc(.6rem + .7vw);
 
-$mobile_to_desktop_width: 750px;
+
+$mobile_width: 750px;
+$desktop_width: calc($mobile_width + 1px);
 
 
 
 body {
     margin: 0;
+    background-color: $bg;
 }
 
-.center_text {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
 
 .on_view_animate {
     opacity: 0;
     animation: on-view-animation .5s linear forwards;
-    
-    
+
+
     @keyframes on-view-animation {
         from {
             opacity: 0;
@@ -66,30 +67,37 @@ body {
 
 }
 
+
 @mixin flex-center() {
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
+@mixin grid-center() {
+    display: grid;
+    justify-items: center;
+    align-items: center;
+}
+
 @mixin button($bg-color, $text-color) {
-    display: block;
-    background-color: $bg-color;
+    font-size: 2rem;
+    font-weight: bold;
+    border-radius: .55rem;
+    padding: 12px 20px;
     color: $text-color;
+    background-color: $bg-color;
     border: none;
-    border-radius: .5rem;
-    padding: 10px 20px;
-    font: {
-        size: $small-font;
-    }
     cursor: pointer;
     transition-duration: .3s;
-    
+
     &:hover {
-        background-color: $text-color;
+        transform: scale(.95);
         color: $bg-color;
+        background-color: $text-color;
     }
 }
+
 
 @mixin font($size, $weight) {
     font: {

@@ -1,23 +1,16 @@
-@import 'base';
+@import 'base.scss';
 
-/* All Screen Sizes */
-@media (min-width: 0) {
-    h1 {
-        font-size: $large_font;
-        margin-top: 400px;
-        text-align: center;
-        color: $secondary-color;
-    }
+
+h1 {
+    font-size: 2rem;
 }
 
-/* Desktop */
-@media (min-width: calc($mobile-to-desktop-width + 1px)) {
-
-}
 
 /* Mobile */
-@media (max-width: $mobile-to-desktop-width) {
-
+@media (max-width: $mobile_width) {
 }
 
 
+/* Desktop */
+@media (min-width: $desktop_width) {
+}

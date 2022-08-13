@@ -6,7 +6,7 @@ var logger = require('morgan');
 
 var contactRouter = require('./routes/contact.js');
 
-const PORT = 5000;
+//const PORT = 5000;
 var app = express();
 
 // view engine setup
@@ -37,9 +37,11 @@ app.use(function(err, req, res, next) {
   res.render('error');
 });
 
+/*
 app.listen(PORT, err => {
   if (err) throw err;
   console.log(`Running Server at http://localhost:${PORT}`)
 });
+*/
 
 module.exports = app;

@@ -194,7 +194,7 @@ function Contact() {
             const body = document.querySelector('#body');
 
             // Send message to express backend, to email to me
-            axios.post('http://localhost/api/contact', {
+            axios.post('http://localhost:5000/api/contact', {
                 sendersEmail: sendersEmail.value,
                 subject: subject.value,
                 body: body.value,

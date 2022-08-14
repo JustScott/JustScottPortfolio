@@ -10,4 +10,4 @@ RUN npm install
 
 COPY . /express-app
 
-CMD npm run-script run
+CMD npm start

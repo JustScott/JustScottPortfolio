@@ -4,7 +4,7 @@
 @media (min-width: 0) {
     @mixin dialog-box($bg-color, $font-color) {
         display: none;
-        position: absolute;
+        position: fixed;
         left: 50%;
         top: 15%;
         transform: translate(-50%, -50%);

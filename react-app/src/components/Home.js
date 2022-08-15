@@ -1,5 +1,5 @@
 /* Third Party Imports */
-import React, { useEffect } from 'react';
+import React from 'react';
 
 /* Styles */
 import '../static/scss/home.scss'
@@ -41,10 +41,72 @@ function Intro() {
 
 function Skills() {
     return (
-        <div className='skills_section' id='skills_section'>
-            <div className='rotating_element'></div>
+        <div>
+            <div className='skills_section' id='skills_section'>
+                <div className='selected_item_text_cotainer'>
+                    <p className='selected_item_heading'>Click One!</p>
+                    <p className='selected_item_text'>Click a Logo to learn more.</p>
+                </div>
+                <img src='python_logo.png' alt='Python Logo' onClick={() => {updateText('Python')}}/>
+                <img src='node_logo.png' alt='Python Logo' onClick={() => {updateText('Node')}}/>
+                <img src='react_logo.png' alt='Python Logo' onClick={() => {updateText('React')}}/>
+                <img src='sass_logo.png' alt='Python Logo' onClick={() => {updateText('Sass')}}/>
+                <img src='mysql_logo.png' alt='Python Logo' onClick={() => {updateText('MySQL')}}/>
+                <img src='mongodb_logo.png' alt='Python Logo' onClick={() => {updateText('MongoDB')}}/>
+                <img src='aws_logo.png' alt='Python Logo' onClick={() => {updateText('AWS')}}/>
+                <img src='linux_logo.png' alt='Python Logo' onClick={() => {updateText('Linux')}}/>
+            </div>
         </div>
     );
+
+    function updateText(skill) {
+        const skills = {
+            'Python': 
+                `
+                Python is just a hobby at the moment, but I have a made a few projects, and
+                hope I can use it professionally in the future!
+                `,
+            'Node': 
+                `
+                Node allows me to use javascript everywhere, which is convienient and
+                helps me develop my skills quickly.
+                `,
+            'React': 
+                `
+                React is my go-to tool for front-end development,
+                it makes everything much easier to understand and visualize.
+                `,
+            'Sass': 
+                `
+                Sass is a godsend for css development, 
+                as it allows me to use programming functionality in my stylesheets!
+                `,
+            'MySQL': 
+                `
+                MySQL can be quite intuitive to use in projects that handle a lot of relational data.
+                `,
+            'MongoDB': 
+                `
+                MongoDB is my go to tool for quick and effective database management.
+                `,
+            'AWS': 
+                `
+                I've received the 'AWS Cloud Practitioner' certification, 
+                and truly enjoy using the service!
+                `,
+            'Linux': 
+                `
+                I've used Linux as a daily driver for years now.
+                `,
+        }
+
+        const heading = document.querySelector('.selected_item_heading');
+        const description = document.querySelector('.selected_item_text');
+
+        heading.innerHTML = skill;
+        description.innerHTML = skills[skill];
+    }
+
 }
 
 function Projects() {

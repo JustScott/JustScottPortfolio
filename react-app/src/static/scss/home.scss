@@ -1,5 +1,9 @@
 @import 'base.scss'; 
 
+/* On All Device Widths */
+@media (min-width: 0) {
+}
+
 
 /* Mobile */
 @media (max-width: $mobile_width) {
@@ -17,7 +21,7 @@
             max-width: 140px;
             margin: 10px;
             box-shadow: 7px 7px 10px;
-            transition-duration: .4s;
+            transition-duration: .2s;
             border-radius: .5rem;
 
             &:hover {
@@ -58,33 +62,86 @@
 
     .skills_section {
         @include flex-center;
-        margin: 200px auto;
-        width: 90vw;
-        height: 90vw;
-        background-color: $primary;
-        border-radius: 50%;
-        animation: {
-            name: rotating;
-            timing-function: linear;
-            duration: 3s;
-            iteration-count: infinite;
-        }
-
-        @keyframes rotating { 
-            from {
-                transform: rotateZ(360deg) scale(1.2);
-            }
-            to {
-                transform: rotateZ(0deg) scale(1);
-            }
-        }
-
-        .rotating_element {
-            width: 10vw;
-            height: 10vw;
-            background-color: white;
+        width: 75%;
+        height: 250px;
+        margin: 250px auto;
+        
+        img {
+            position: absolute;
+            width: calc(10px + 9vw);
+            font-size: 2rem;
             border-radius: 50%;
-            margin-left: 30px;
+            padding: 5px;
+            transition-duration: .2s;
+            cursor: pointer;
+
+            &:hover {
+                background-color: $text;
+                box-shadow: 0 0 3px 3px $primary;
+            } 
+        
+            $distance: calc(150px + 40vw);
+            $corner-distance: calc(70px + 40vw);
+
+            &:nth-child(1) {
+                margin-bottom: $distance;
+            }
+            &:nth-child(2) {
+                margin-bottom: $corner-distance;
+                margin-left: $corner-distance;
+            }
+            &:nth-child(3) {
+                margin-left: $distance;
+            }
+            // bottom right
+            &:nth-child(4) {
+                margin-top: $corner-distance;
+                margin-left: $corner-distance;
+            }
+            // bottom
+            &:nth-child(5) {
+                margin-top: $distance;
+            }
+            // bottom left
+            &:nth-child(6) {
+                margin-top: $corner-distance;
+                margin-right: $corner-distance;
+            }
+            // left
+            &:nth-child(7) {
+                margin-right: $distance;  
+            }
+            // top left
+            &:nth-child(8) {
+                margin-right: $corner-distance; 
+                margin-bottom: $corner-distance; 
+            }
+            // top left
+            &:nth-child(9) { 
+                margin-bottom: $distance; 
+            }
+
+        }
+        .selected_item_text_cotainer {
+            @include flex-center;
+            flex-direction: column;
+            width: calc(80px + 30vw);
+            height: calc(80px + 30vw);
+            text-align: center;
+            color: $primary;
+            border: 3px solid $primary;
+            border-radius: 50%;
+            padding: 10px;
+
+            .selected_item_heading {
+                @include font(calc($medium-font + 8px), bold);
+                margin: 5px;
+            }
+            
+            .selected_item_text {
+                @include font(calc($small-font + 3px), bold); 
+                margin: 10px;
+            }
         }
     }
 }
@@ -132,6 +189,91 @@
 	        button {
                 @include button($contrast, $text);
                 margin-top: 40px;
+            }
+        }
+    }
+
+    .skills_section {
+        @include flex-center;
+        width: 75%;
+        height: 250px;
+        margin: 60vh auto;
+        
+        img {
+            position: absolute;
+            width: calc(10px + 5vw);
+            font-size: 2rem;
+            border-radius: 50%;
+            padding: 5px;
+            transition-duration: .2s;
+            cursor: pointer;
+
+            &:hover {
+                background-color: $text;
+                box-shadow: 0 0 3px 3px $primary;
+            } 
+        
+            $distance: calc(150px + 25vw);
+            $corner-distance: calc(70px + 22vw);
+
+            &:nth-child(1) {
+                margin-bottom: $distance;
+            }
+            &:nth-child(2) {
+                margin-bottom: $corner-distance;
+                margin-left: $corner-distance;
+            }
+            &:nth-child(3) {
+                margin-left: $distance;
+            }
+            // bottom right
+            &:nth-child(4) {
+                margin-top: $corner-distance;
+                margin-left: $corner-distance;
+            }
+            // bottom
+            &:nth-child(5) {
+                margin-top: $distance;
+            }
+            // bottom left
+            &:nth-child(6) {
+                margin-top: $corner-distance;
+                margin-right: $corner-distance;
+            }
+            // left
+            &:nth-child(7) {
+                margin-right: $distance;  
+            }
+            // top left
+            &:nth-child(8) {
+                margin-right: $corner-distance; 
+                margin-bottom: $corner-distance; 
+            }
+            // top left
+            &:nth-child(9) { 
+                margin-bottom: $distance; 
+            }
+
+        }
+        .selected_item_text_cotainer {
+            @include flex-center;
+            flex-direction: column;
+            width: calc(80px + 14vw);
+            height: calc(80px + 14vw);
+            text-align: center;
+            color: $primary;
+            border: 3px solid $primary;
+            border-radius: 50%;
+            padding: 10px;
+
+            .selected_item_heading {
+                @include font(calc($medium-font + 3px), bold);
+                margin: 5px;
+            }
+            
+            .selected_item_text {
+                @include font(calc($small-font - 2px), bold); 
+                margin: 10px;
             }
         }
     }

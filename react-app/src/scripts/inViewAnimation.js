@@ -70,4 +70,4 @@ function animateOnView() {
 }
 
 
-module.exports = { animateOnView, childOpacityToZero };
+module.exports = { animateOnView, childOpacityToZero, checkInView };

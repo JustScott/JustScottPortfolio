@@ -1,5 +1,5 @@
 /* Third Party Imports */
-import React from 'react';
+import React, { useEffect } from 'react';
 
 /* Styles */
 import '../static/scss/home.scss'
@@ -11,13 +11,14 @@ export default class Home extends React.Component {
         return (
             <>
                 <Intro />
+                <Skills />
             </>
         );
     }
 }
 
 
-function Intro(props) {
+function Intro() {
     return (
         <div className='home_about_container'>
             <img src='bodyshot.jpg' alt='Me'/>
@@ -35,4 +36,14 @@ function Intro(props) {
             </div>
         </div>
     );
+}
+
+function Skills() {
+
+    return (
+        <div className='skills_section'>
+            <div className='rotating_element'></div>
+        </div>
+    );
+
 }

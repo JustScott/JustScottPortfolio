@@ -81,15 +81,21 @@ function Navbar() {
                 </span>
 
                 <div className='icons_container'>
-                    <a href='#intro_section' className='icon_container' id='home_icon'>
+                    <i className='icon_container' id='home_icon' onClick={() => {
+                        document.querySelector('#intro_section').scrollIntoView({ behavior: 'smooth' });
+                    }}>
                         <FontAwesomeIcon icon={faAddressCard}/>
-                    </a>
-                    <a href='#skills_section' className='icon_container' id='skills_icon'>
+                    </i>
+                    <i className='icon_container' id='skills_icon'  onClick={() => {
+                        document.querySelector('#skills_section').scrollIntoView({ behavior: 'smooth' });
+                    }}>
                         <FontAwesomeIcon icon={faListUl}/>
-                    </a>
-                    <a href='#projects_section' className='icon_container' id='projects_icon'>
+                    </i>
+                    <i className='icon_container' id='projects_icon' onClick={() => {
+                        document.querySelector('#projects_section').scrollIntoView({ behavior: 'smooth' });
+                    }}>
                         <FontAwesomeIcon icon={faCode}/>
-                    </a>
+                    </i>
                 </div>
             </div>
         </>

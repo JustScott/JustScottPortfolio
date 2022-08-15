@@ -351,12 +351,13 @@
                 color: $text;
                 font-size: 2rem;
                 z-index: 1;
-                transition-duration: .3s;
+                transition-duration: .2s;
+                cursor: pointer;
 
                 &:hover {
-                    background-color: $text;
-                    color: $primary;
-                    box-shadow: 0 0 3px 3px $primary;
+                    background-color: $text !important;
+                    color: $primary !important;
+                    box-shadow: 0 0 3px 3px $primary !important;
                 }
             }
         }

@@ -4,7 +4,6 @@
 @media (min-width: 0) {
 }
 
-
 /* Mobile */
 @media (max-width: $mobile_width) {
     .home_about_container {
@@ -15,6 +14,7 @@
         margin: 60px auto;
         background-color: $primary;
         border-radius: .5rem;
+        scroll-margin-top: 40px;
 	
         img {
             width: 55%;
@@ -63,8 +63,8 @@
     .skills_section {
         @include flex-center;
         width: 75%;
-        height: 250px;
-        margin: 250px auto;
+        height: 100vh;
+        margin: 10vh auto;
         
         img {
             position: absolute;
@@ -154,10 +154,11 @@
 		justify-content: space-evenly;
 		align-items: center;
 		width: 65%;
-		height: 600px;
+		height: 70vh;
 		margin: 3vw auto;
 		margin-top: 5vw;
 		color: $primary;
+        scroll-margin-top: 200px;
 
 	    img {
             display: block;
@@ -196,8 +197,9 @@
     .skills_section {
         @include flex-center;
         width: 75%;
-        height: 250px;
-        margin: 60vh auto;
+        height: 100vh;
+        margin: 10vh auto;
+        scroll-margin-top: 50px;
         
         img {
             position: absolute;

@@ -27,11 +27,13 @@
 
 /* Mobile */
 @media (max-width: $mobile_width) {
+    .navbar_desktop {display: none;}
+
     .footer {
         display: none;
     }
 
-    .navbar {
+    .navbar_mobile {
         @include flex-center;
         position: fixed;
         height: 50px;
@@ -105,7 +107,7 @@
             animation-iteration-count: 1;
             animation-fill-mode: forwards;
             
-            .navbar_text {
+            a {
                 @include font(calc($large-font + 3vw), bold);
                 color: white;
                 margin: 20px;
@@ -318,56 +320,63 @@
     }
 }
 
-
 /* Desktop */
 @media (min-width: $desktop_width) {
-    .navbar_open_icon {display: none;}
-    .navbar_external_links {display: none;}
+    .navbar_mobile {display: none;}
 
-    .nav_items_container {
-        display: flex;
-        flex-direction: row;
-        justify-content: space-evenly;
-        align-items: center;
-        background-color: $primary;
-        width: 70%;
-        height: 100px;
-        margin: 10px auto;
-        border-radius: .5rem;
+    .navbar_desktop {
+        @include flex-center;
+        position: fixed;
+        margin: auto;
+        top: 0;
+        bottom: 0;
+        left: 20px;
+        width: 70px;
+        height: 40vh;
+        z-index: 40000;
 
-        .navbar_text {
-            text-decoration: none;
-            text-align: center;
-            font-size: 1.8rem;
-            font-weight: bold;
-            color: $text;
-            border: 4px solid transparent;
-            border-top:none;border-bottom:none;
-            transition-duration: .3s;
-            width: 200px;
-            
-            &:hover {
-                border: 4px solid $contrast;
-                border-top:none;
-                border-bottom:none;
-                color: $contrast;
+        .icons_container { 
+            display: grid;
+            grid-template-columns: 1fr;
+            grid-gap: 10vh;
+            justify-items: center;
+            align-items: center;
+
+            .icon_container {
+                @include flex-center;
+                width: 70px;
+                height: 70px;
+                border-radius: 50%;
+                background-color: $primary;
+                color: $text;
+                font-size: 2rem;
+                z-index: 1;
+                transition-duration: .3s;
+
+                &:hover {
+                    background-color: $text;
+                    color: $primary;
+                    box-shadow: 0 0 3px 3px $primary;
+                }
             }
         }
 
-        .icon {
-            //transform: scale(1.5);
-            width: 50px;
-            height: 50px;
-            color: $text;
-            transition-duration: .1s;
-            border: none;
-        
-            &:hover {
-                transform: scale(1.1);
-                color: $contrast;
+        .distance_container {
+            @include flex-center;
+            align-items: flex-start;
+            position: absolute;
+            width: 7px;
+            height: 100%;
+            border: 3px solid white;
+            z-index: 0;
+
+            .distance_filler {
+                width: 100%;
+                background-color: $primary;
             }
         }
-        #navbar_home_text {display: none;}
+
+
     }
 
     .contact_bubble {

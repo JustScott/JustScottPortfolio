@@ -11,6 +11,8 @@ export default class Home extends React.Component {
         return (
             <>
                 <Intro />
+                <Skills />
+                <Projects />
             </>
         );
     }
@@ -19,7 +21,7 @@ export default class Home extends React.Component {
 
 function Intro(props) {
     return (
-        <div className='home_about_container'>
+        <div className='home_about_container' id='intro_section'>
             <img src='bodyshot.jpg' alt='Me'/>
             <div className='text_side'>
                 <p className='desktop_about_text'>
@@ -31,8 +33,20 @@ function Intro(props) {
                     This is mobile filler text, that will be much more consice to save
                     space.
                 </p>
-                <a href='/resume'><button>Resume</button></a>
+                <button>Resume</button>
             </div>
         </div>
+    );
+}
+
+function Skills() {
+    return (
+        <div id='skills_section'></div>
+    );
+}
+
+function Projects() {
+    return (
+        <div id='projects_section'></div>
     );
 }

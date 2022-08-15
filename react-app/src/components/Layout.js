@@ -1,21 +1,28 @@
 /* Import Modules */
-import React from 'react';
-import { Outlet, Link } from 'react-router-dom';
+import React, { useEffect } from 'react';
+import { Outlet } from 'react-router-dom';
 import axios from 'axios';
 
 /* Import Local Scripts */
-import baseScripts from '../scripts/base.js';
+import baseScripts from '../scripts/base';
+import distanceFiller from '../scripts/navigation';
 
 /* Icon Imports */
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faHouse } from "@fortawesome/free-solid-svg-icons";
-import { faComment } from "@fortawesome/free-solid-svg-icons";
-import { faCopy } from "@fortawesome/free-solid-svg-icons";
-import { faArrowCircleUp } from "@fortawesome/free-solid-svg-icons";
+import 
+    { 
+        faAddressCard, 
+        faListUl,
+        faCode, 
+        faComment, 
+        faCopy, 
+        faArrowCircleUp 
+    } 
+    from "@fortawesome/free-solid-svg-icons";
+
 
 import { faLinkedin } from "@fortawesome/free-brands-svg-icons";
 import { faGithub } from "@fortawesome/free-brands-svg-icons";
-
 
 
 /* Import Styles */
@@ -34,16 +41,30 @@ export default class Layout extends React.Component {
 };
 
 function Navbar() {
+
+    useEffect(() => {
+        /* On the initial page load */
+        distanceFiller('home_icon', 'intro_section', 'distance_filler');
+
+        const projectsSection = document.getElementById('projects_section');
+        const projectsSectionTop = projectsSection.getBoundingClientRect().top;
+
+        window.addEventListener('scroll', () => {
+            distanceFiller('home_icon', 'intro_section', 'distance_filler');
+            distanceFiller('skills_icon', 'skills_section', 'distance_filler')
+            distanceFiller('projects_icon', 'projects_section', 'distance_filler', projectsSectionTop);
+        })
+    })
+
     return (
         <>
-            <div className='navbar' id='navbar'>
+            <div className='navbar_mobile' id='navbar'>
                 <ExternalLinks />
 
                 <div className='nav_items_container'>
-                    <NavbarTextItem link='/posts' name='Posts'/>
-                    <NavbarIconItem link='/' icon={faHouse} id='navbar_home_icon'/>
-                    <NavbarTextItem link='/' name='Home' id='navbar_home_text'/>
-                    <NavbarTextItem link='/projects' name='Projects'/>
+                    <a href='#intro_section' onClick={() => openOrCloseNavbar()}>Home</a>
+                    <a href='#skills_section' onClick={() => openOrCloseNavbar()}>Skills</a>
+                    <a href='#projects_section' onClick={() => openOrCloseNavbar()}>Projects</a>
                 </div>
 
                 <i 
@@ -53,6 +74,24 @@ function Navbar() {
                 </i>
             </div>
             <Outlet /> {/* Renders the selected path */}
+
+            <div className='navbar_desktop' id='navbar'>
+                <span className='distance_container'>
+                    <span className='distance_filler' id='distance_filler'></span>
+                </span>
+
+                <div className='icons_container'>
+                    <a href='#intro_section' className='icon_container' id='home_icon'>
+                        <FontAwesomeIcon icon={faAddressCard}/>
+                    </a>
+                    <a href='#skills_section' className='icon_container' id='skills_icon'>
+                        <FontAwesomeIcon icon={faListUl}/>
+                    </a>
+                    <a href='#projects_section' className='icon_container' id='projects_icon'>
+                        <FontAwesomeIcon icon={faCode}/>
+                    </a>
+                </div>
+            </div>
         </>
     );
 
@@ -77,26 +116,6 @@ function Navbar() {
                 </a>
             );
         }
-    }
-
-    function NavbarTextItem(props) {
-        return (
-            <Link 
-                to={props.link} 
-                className='navbar_text' 
-                id={props.id} 
-                onClick={() => openOrCloseNavbar()}
-                >
-                    {props.name}
-            </Link>
-        );
-    }
-    function NavbarIconItem(props) {
-        return (
-            <Link to={props.link} id={props.id}>
-                <FontAwesomeIcon className='icon' icon={props.icon} />
-            </Link>
-        );
     }
 
     function openOrCloseNavbar() {
@@ -256,7 +275,7 @@ function Contact() {
 
 function Footer() {
     return (
-        <div className='footer'>
+        <div className='footer' id='footer'>
             <div className="footer_external_links">
                 <Link 
                     href='https://www.github.com/JustScott'

@@ -1,9 +1,10 @@
-const noAnimation = [
+const noAnimationID = [
     'navbar',
     'contact_form_background',
     'contact_form',
     'success_message',
     'error_message',
+    'footer',
 ];
 
 /*
@@ -15,7 +16,7 @@ function childOpacityToZero() {
     let children = root.children;
     for (let i=0;i<children.length;i++) {
         let child = children[i];
-        if (noAnimation.indexOf(child.id) > -1) {
+        if (noAnimationID.indexOf(child.id) > -1) {
             continue;
         }
         child.style.opacity = '0';
@@ -45,7 +46,7 @@ function animateOnView() {
 
     for (let i=0;i<children.length;i++) {
         let child = children[i];
-        if (noAnimation.indexOf(child.id) > -1) {
+        if (noAnimationID.indexOf(child.id) > -1) {
             continue;
         }
         /*

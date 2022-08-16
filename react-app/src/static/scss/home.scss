@@ -154,8 +154,9 @@
         width: 90%;
         height: 35vh;
         min-height: 220px;
-        margin: 150px auto;
-        overflow-y: auto;
+        margin: 30vh auto;
+        overflow-x: auto;
+        overflow-y: hidden;
         padding: 10px;
 
         .floating_arrow {
@@ -199,10 +200,13 @@
         }
 
         .project_container {
+            $width: 270px;
+            $height: 100%;
+
             @include flex-center;
             flex-direction: column;
-            width: 270px;
-            height: 100%;
+            width: $width;
+            height: $height;
             margin: 0 20px;
             background-color: $primary;
             border-radius: .5rem;
@@ -229,6 +233,7 @@
                 opacity: 0;
                 width: 0;
                 height: 0;
+                overflow-y: hidden;
                 z-index: 1;
 
                 animation: {
@@ -244,17 +249,23 @@
                         width: 0;
                         height: 0;
                     }
+                    40% {
+                        opacity: 0;
+                    }
                     to {
                         opacity: 1;
-                        width: 270px;
-                        height: 100%;
+                        width: $width;
+                        height: $height;
                     }
                 }
                 @keyframes uncover-container {
                     from {
                         opacity: 1;
-                        width: 270px;
-                        height: 100%;
+                        width: $width;
+                        height: $height;
+                    }
+                    40% {
+
                     }
                     to {
                         opacity: 0;
@@ -336,7 +347,7 @@
         @include flex-center;
         width: 75%;
         height: 100vh;
-        margin: 10vh auto;
+        margin: 15vh auto;
         scroll-margin-top: 50px;
         
         img {
@@ -418,5 +429,164 @@
         }
     }
 
-    .projects_section {display: none;}
+    /* Larger Desktop Widths */
+    .projects_section {
+        display: grid;
+        justify-items: center;
+        align-items: center;
+        grid-template-columns: repeat(3, 1fr);
+        grid-gap: 5%;
+        wrap: flex-wrap;
+        width: 65%;
+        margin: 33vh auto;
+        padding: 10px;
+        scroll-margin-top: 280px;
+
+        .floating_arrow {display: none;}
+
+        .project_container {
+            $width: 18vw;
+            $height: 33vh;
+            $min-height: 300px;
+
+            @include flex-center;
+            flex-direction: column;
+            width: $width;
+            min-height: $min-height;
+            height: $height;
+            margin: 0 20px;
+            background-color: $primary;
+            border-radius: .5rem;
+            border: none;
+
+            .project_title {
+                @include font(calc($large-font + 3px), bold);
+                color: $text;
+            }
+
+            .project_icon {
+                font-size: 4rem;
+                color: $text;
+            }
+
+            .project_details {
+                justify-self: flex-end;
+                position: absolute;
+                @include flex-center;
+                flex-direction: column;
+                border-radius: .5rem;
+                background-color: $text;
+                color: $primary;
+                opacity: 0;
+                width: 0;
+                height: 0;
+                overflow-y: hidden;
+                z-index: 1;
+
+                animation: {
+                    duration: .4s;
+                    timing-function: linear;
+                    iteration-count: 1;
+                    fill-mode: forwards;
+                }
+
+                @keyframes cover-container {
+                    from {
+                        opacity: 0;
+                        width: 0;
+                        height: 0;
+                    }
+                    40% {
+                        opacity: 0;
+                    }
+                    to {
+                        opacity: 1;
+                        width: $width;
+                        min-height: $min-height;
+                        height: $height;
+                    }
+                }
+                @keyframes uncover-container {
+                    from {
+                        opacity: 1;
+                        width: $width;
+                        min-height: $min-height;
+                        height: $height;
+                    }
+                    40% {
+                        opacity: 0;
+                    }
+                    to {
+                    }
+                }
+                .project_description {
+                    @include font($medium-font, bold);
+                    width: 90%;
+                    text-align: center;
+                }
+                .project_home_icon_link {
+                    margin: 0;
+                    font-size: 2.4rem;
+                    color: $primary;
+                    transition-duration: .1s;
+
+                    &:hover {
+                        color: $contrast;
+                        transform: scale(1.1);
+                    }
+                }
+            }
+        }
+    }
+
+    /* Smaller Desktop Widths */
+    @media (max-width: 1400px) {
+        .projects_section {
+            grid-template-columns: repeat(2, 1fr);
+
+            .project_container {
+                $min-width: 260px;
+                $width: 24vw;
+                $min-height: 270px;
+                $height: 36vh;
+
+                min-width: $min-width;
+                width: $width;
+                min-height: $min-height;
+                height: $height;
+
+                @keyframes cover-container {
+                    from {
+                        opacity: 0;
+                        height: 0;
+                    }
+                    40% {
+                        opacity: 0;
+                    }
+                    to {
+                        opacity: 1;
+                        min-width: $min-width;
+                        width: $width;
+                        min-height: $min-height;
+                        height: $height;
+                    }
+                }
+                @keyframes uncover-container {
+                    from {
+                        opacity: 1;
+                        min-width: $min-width;
+                        width: $width;
+                        min-height: $min-height;
+                        height: $height;
+                    }
+                    40% {
+                        opacity: 0;
+                    }
+                    to {
+                    }
+                }
+            
+            }
+        }
+    }
 }

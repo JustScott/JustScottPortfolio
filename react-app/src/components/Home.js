@@ -79,40 +79,38 @@ function Skills() {
         const skills = {
             'Python': 
                 `
-                Python is just a hobby at the moment, but I have a made a few projects, and
-                hope I can use it professionally in the future!
+                I've been using python for hobby projects, for a few years now.
                 `,
             'Node': 
                 `
-                Node allows me to use javascript everywhere, which is convienient and
-                helps me develop my skills quickly.
+                While I'm relatively new to node, I've been using/learning Javascript for
+                a few years now.
                 `,
             'React': 
                 `
-                React is my go-to tool for front-end development,
-                it makes everything much easier to understand and visualize.
+                React is my go-to tool for front-end development, and I'm learning more
+                about it everyday!
                 `,
             'Sass': 
                 `
-                Sass is a godsend for css development, 
-                as it allows me to use programming functionality in my stylesheets!
+                I started with Sass not too long ago, but have been using css for years.
                 `,
             'MySQL': 
                 `
-                MySQL can be quite intuitive to use in projects that handle a lot of relational data.
+                MySQL and SQLite3 have been database choice for many small projects over the years.
                 `,
             'MongoDB': 
                 `
-                MongoDB is my go to tool for quick and effective database management.
+                MongoDB is to new to me, but I'm quite enjoying the ease of use and speed!
                 `,
             'AWS': 
                 `
-                I've received the 'AWS Cloud Practitioner' certification, 
-                and truly enjoy using the service!
+                I'm working towards the 'Cloud Practitioner' certifcation, and so far this service
+                continues to intrigue and amaze me!
                 `,
             'Linux': 
                 `
-                I've used Linux as a daily driver for years now.
+                I've used Linux as a daily driver for years now, it's absolutely my favorite thing, Ever.
                 `,
         }
 
@@ -128,19 +126,21 @@ function Skills() {
 function Projects() {
 
     useEffect(() => {
-        const container = document.querySelector('#projects_section');
-        const arrow = document.querySelector('#floating_arrow');
         window.addEventListener('scroll', () => {
+            const container = document.querySelector('#projects_section');
+            const arrow = document.querySelector('#floating_arrow');
 
-            if (animations.checkInView(container)) {
-                arrow.style.animationName = 'floating-arrow';
-                arrow.addEventListener("animationend", () => {
-                    arrow.style.display = 'none';
-                });
-            }else {
-                setTimeout(() => {
-                    arrow.style.display = 'flex';
-                }, 1000)
+            if (window.screen.width < 750) {
+                if (animations.checkInView(container)) {
+                    arrow.style.animationName = 'floating-arrow';
+                    arrow.addEventListener("animationend", () => {
+                        arrow.style.display = 'none';
+                    });
+                }else {
+                    setTimeout(() => {
+                        arrow.style.display = 'flex';
+                    }, 1000)
+                }
             }
         });
     })
@@ -150,21 +150,21 @@ function Projects() {
             <i className='floating_arrow' id='floating_arrow'><FontAwesomeIcon icon={faArrowRightLong}/></i>
             <Project 
                 title='ListCrypt'
-                description='ListCrypt is a cryptographic algorithm developed entirely in Python3.'
+                description='ListCrypt is a custom cryptographic algorithm I developed entirely in Python3'
                 icon={faLock}
                 homeLink='https://www.github.com/JustScott/ListCrypt'
                 homeIcon={faGithub}
             />
             <Project 
                 title='SuperSockets'
-                description='ListCrypt is a cryptographic algorithm developed entirely in Python3.'
+                description="SuperSockets is an easy to use implementation of python's socket library, and includes built in encryption!"
                 icon={faWifi}
                 homeLink='https://www.github.com/JustScott/SuperSockets'
                 homeIcon={faGithub}
             />
             <Project 
                 title='JustScottPortfolio' 
-                description='ListCrypt is a cryptographic algorithm developed entirely in Python3.'
+                description='This is the website your currently on!'
                 icon={faDisplay}
                 homeLink='https://www.github.com/JustScott/JustScottPortfolio'
                 homeIcon={faGithub}
@@ -182,8 +182,8 @@ function Projects() {
                 <p className='project_title'>{props.title}</p>
                 <i className='project_icon'><FontAwesomeIcon icon={props.icon}/></i>
                 <div className='project_details' id={props.title}>
-                    <a href={props.homeLink} className='project_home_icon_link'><FontAwesomeIcon icon={props.homeIcon}/></a>
                     <p className='project_description'>{props.description}</p>
+                    <a href={props.homeLink} className='project_home_icon_link'><FontAwesomeIcon icon={props.homeIcon}/></a>
                 </div>
             </div>
         );

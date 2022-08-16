@@ -1,5 +1,21 @@
 /* Third Party Imports */
-import React from 'react';
+import React, { useEffect } from 'react';
+
+/* Icon Imports */
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import 
+    { 
+        faArrowRightLong,
+        faLock, 
+        faWifi,
+        faDisplay,
+    } 
+    from "@fortawesome/free-solid-svg-icons";
+
+
+import { faGithub } from "@fortawesome/free-brands-svg-icons";
+
+import animations from '../scripts/inViewAnimation';
 
 /* Styles */
 import '../static/scss/home.scss'
@@ -110,7 +126,66 @@ function Skills() {
 }
 
 function Projects() {
+
+    useEffect(() => {
+        const container = document.querySelector('#projects_section');
+        const arrow = document.querySelector('#floating_arrow');
+        window.addEventListener('scroll', () => {
+
+            if (animations.checkInView(container)) {
+                arrow.style.animationName = 'floating-arrow';
+                arrow.addEventListener("animationend", () => {
+                    arrow.style.display = 'none';
+                });
+            }else {
+                setTimeout(() => {
+                    arrow.style.display = 'flex';
+                }, 1000)
+            }
+        });
+    })
+
     return (
-        <div id='projects_section'></div>
+        <div className='projects_section' id='projects_section'>
+            <i className='floating_arrow' id='floating_arrow'><FontAwesomeIcon icon={faArrowRightLong}/></i>
+            <Project 
+                title='ListCrypt'
+                description='ListCrypt is a cryptographic algorithm developed entirely in Python3.'
+                icon={faLock}
+                homeLink='https://www.github.com/JustScott/ListCrypt'
+                homeIcon={faGithub}
+            />
+            <Project 
+                title='SuperSockets'
+                description='ListCrypt is a cryptographic algorithm developed entirely in Python3.'
+                icon={faWifi}
+                homeLink='https://www.github.com/JustScott/SuperSockets'
+                homeIcon={faGithub}
+            />
+            <Project 
+                title='JustScottPortfolio' 
+                description='ListCrypt is a cryptographic algorithm developed entirely in Python3.'
+                icon={faDisplay}
+                homeLink='https://www.github.com/JustScott/JustScottPortfolio'
+                homeIcon={faGithub}
+            />
+        </div>
     );
+
+    function Project(props) {
+        return (
+            <div className='project_container' onMouseOver={() => {
+                document.getElementById(props.title).style.animationName = 'cover-container';
+            }} onMouseOut={() => {
+                document.getElementById(props.title).style.animationName = 'uncover-container';
+            }}>
+                <p className='project_title'>{props.title}</p>
+                <i className='project_icon'><FontAwesomeIcon icon={props.icon}/></i>
+                <div className='project_details' id={props.title}>
+                    <a href={props.homeLink} className='project_home_icon_link'><FontAwesomeIcon icon={props.homeIcon}/></a>
+                    <p className='project_description'>{props.description}</p>
+                </div>
+            </div>
+        );
+    }
 }

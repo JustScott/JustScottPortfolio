@@ -269,7 +269,6 @@ function Contact() {
         let formElement = document.querySelector('#contact_form');
         formElement.style.left = '-50%';
     }
-    
     function displayContactForm() {
         let backgroundElement = document.querySelector('#contact_form_background');
         backgroundElement.style.display = 'block';	

@@ -4,6 +4,7 @@ const noAnimationID = [
     'contact_form',
     'success_message',
     'error_message',
+    'resume',
     'footer',
 ];
 

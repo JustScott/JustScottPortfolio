@@ -62,7 +62,7 @@ function Navbar() {
                 <ExternalLinks />
 
                 <div className='nav_items_container'>
-                    <a href='#intro_section' onClick={() => openOrCloseNavbar()}>Home</a>
+                    <a href='#intro_section' onClick={() => openOrCloseNavbar()}>Intro</a>
                     <a href='#skills_section' onClick={() => openOrCloseNavbar()}>Skills</a>
                     <a href='#projects_section' onClick={() => openOrCloseNavbar()}>Projects</a>
                 </div>

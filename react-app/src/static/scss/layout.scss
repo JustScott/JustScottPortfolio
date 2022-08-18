@@ -1,5 +1,28 @@
 @import 'base.scss'; 
 
+body {
+    overflow-x: hidden;
+}
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: .5rem;
+    
+    &:hover {
+      background: $contrast;
+    }
+}
+
+
 @media print {
     .navbar_mobile {display: none;}
     .navbar_desktop {display: none;}

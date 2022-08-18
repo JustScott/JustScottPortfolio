@@ -3,10 +3,11 @@
 
 /* Tells the window what to show when calling window.print() */
 @media print {
-    @page { size: auto;  margin: 0;}
+    @page { size: auto; margin: 0;}
 
     #resume {
-        width: 100%;
+        width: 100vw;
+        height: 99vh;
     }
     .intro_section {display: none;}
     .skills_section {display: none;}

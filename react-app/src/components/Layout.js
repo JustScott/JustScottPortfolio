@@ -129,7 +129,7 @@ function Navbar() {
         const navbarHeight = navbarContainer.getBoundingClientRect().height;
 
 
-        if (navbarHeight === 50) {
+        if (navbarHeight === 80) {
             maximizeMobileNavbar()
         }else {
             minimizeMobileNavbar()
@@ -143,6 +143,7 @@ function Navbar() {
 
             // Maximize the Navbar
             navbarContainer.style.height = '100vh';
+            navbarContainer.style.borderRadius = 0;
             navbarIcon.style.animationName = 'downArrow';
 
             // Display the Navigation Links
@@ -159,7 +160,9 @@ function Navbar() {
             let navbarLinks = document.querySelector('.navbar_external_links');
 
             // Minimize the Navbar
-            navbarContainer.style.height = '50px';
+            navbarContainer.style.height = '80px';
+            navbarContainer.style.borderTopLeftRadius = '50%';
+            navbarContainer.style.borderTopRightRadius = '50%';
             navbarIcon.style.animationName = 'upArrow';
 
             // Hide the Navigation Links

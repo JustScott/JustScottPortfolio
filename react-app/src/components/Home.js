@@ -60,7 +60,7 @@ function Skills() {
     return (
         <div>
             <div className='skills_section' id='skills_section'>
-                <div className='selected_item_text_cotainer'>
+                <div className='selected_item_text_container'>
                     <p className='selected_item_heading'>Click One!</p>
                     <p className='selected_item_text'>Click a Logo to learn more.</p>
                 </div>

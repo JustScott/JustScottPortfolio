@@ -105,3 +105,6 @@ dist
 
 # Passwords
 .secrets
+
+# Custom docker script for updating images
+dockify.sh

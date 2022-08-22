@@ -80,7 +80,7 @@ body {
             border-top-right-radius: 50%;
             left: 0;
             bottom: 0;
-            z-index: 200000;
+            z-index: 40000;
             background-color: $primary;
             transition-duration: .5s;
 
@@ -243,7 +243,7 @@ body {
             height: 102vh;
             top: 0;
             left: 0;
-            z-index: 20000;
+            z-index: 50000;
             background-color: grey;
             opacity: 40%;
             cursor: pointer;
@@ -253,100 +253,134 @@ body {
             top: 50%;
             left: -50%;
             transform: translate(-50%, -50%);
-            width: 70%;
-            max-width: 280px;
-            z-index: 21000;
-            background-color: var(--primary-color);
-            border: 2px solid var(--complimentry-color);
+            padding: 10px;
+            min-width: 280px;
+            width: 80%;
+            max-width: 400px;
+            z-index: 51000;
+            background-color: $text;
             border-radius: .7rem;
+            box-shadow: 0 0 15px 4px $primary; 
             transition-duration: .4s;
-        
-            h1 {
+
+            .contact_heading {
+                @include font(1.3rem, bold);
+                color: $primary;
                 text-align: center;
-                font-size: 1.4rem;
-                color: var(--text-color);
-                border: 2px solid var(--text-color);
-                border-right:none;border-left:none;
-                margin-bottom: 10px;
-                transition-duration: .4s;
-            
-                &:hover {
-                    color: var(--contrast-color);
-                    border-color: var(--contrast-color);
+                display: block;
+                margin: 2vh auto;
+                width: 70%;
+                border: 2px solid $primary;
+                border-top: none;
+                border-bottom: none;
+            }
+            .contact_info_container {
+                @include flex-center;
+                margin: 3vh 0 4vh 0;
+
+                .tool_tip_text {
+                    position: absolute;
+                    left: 0;
+                    right: 0;
+                    margin: auto;
+                    margin-top: -50px;
+                    width: 150px;
+                    text-align: center;
+                    opacity: 0;
+                    background-color: #555;
+                    @include font(.7rem, bold);
+                    color: #fff;
+                    padding: 3px 5px;
+                    transition-duration: .2s;
+                }
+                &:hover .tool_tip_text {
+                    opacity: 1;
+                }
+
+                .contact_info_item {
+                    @include flex-center;
+                    @include font(.7rem, bold);
+                    color: $primary;
+                    text-align: center;
+                    margin: 5px 10px;
+                    padding: 0 10px;
+                    border: 1px solid $primary;
+                    border-radius: .5rem;
+                    transition-duration: .2s;
+                    cursor: pointer;
+
+                    &:hover {
+                        color: $contrast;
+                        border-color: $contrast;
+                    }
+
+                    .contact_info_text {
+                        padding-right: 10px;
+                        margin: 5px 0;
+                    }
                 }
             }
-
-            .email_link_container {
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                width: 60%;
-                height: 30px;
-                margin: auto;
-                margin-bottom: 10px;
-                font-size: calc($medium-font - 2px);
-                padding: 0 5px;
-                color: var(--text-color);
-                border: 1px solid var(--text-color); 
-                cursor: pointer;
-                transition-duration: .3s;
-            
-                p {
-                    display: inline-block;
-                    margin-right: 5px;
-                }
-            }
-            .tool_tip_text {
-                opacity: 0;
-                position: absolute;
-                margin-bottom: 60px;
-                background-color: #555;
-                color: #fff;
-                font-size: 1rem;
-                padding: 3px 5px;
-                transition-duration: .2s;
-            }
-            .email_link_container:hover .tool_tip_text {
-                opacity: 1;
-            }
-
             input {
                 display: block;
+                margin: 2vh auto;
+                padding: 10px 20px;
                 width: 70%;
-                margin: 10px auto;
-                font-size: .7rem;
-                font-weight: bold;
-                padding: 5px 10px;
-                background-color: var(--text-color);
-                color: var(--primary-color);	
+                @include font(.8rem, light);
+                color: $primary;
                 border: none;
+                outline: $contrast;
+                border-radius: 1rem;
+                box-shadow: 0 0 10px 2px;
+                transition-duration: .2s;
+
+                &:hover {
+                   transform: scale(1.05);
+                   color: $contrast;
+                }
             }
             textarea {
                 display: block;
-                min-width: 80%;
-                max-width: 90%;
+                margin: 2vh auto 0 auto;
+                padding: 10px 20px;
+                @include font(.7rem, light);
+                min-width: 70%;
+                max-width: 80%;
                 min-height: 80px;
-                max-height: 160px;
-                padding: 5px;
-                margin: auto;
-                font-size: .8rem;
-                background-color: var(--text-color);
-                color: var(--primary-color);
+                max-height: 150px;
+                color: $primary;
                 border: none;
-            }
+                outline: $contrast;
+                border-radius: 1rem;
+                box-shadow: 0 0 10px 2px;
+                transition-duration: .2s;
 
-            .contact_form_buttons_container {
-                @include flex-center;
-                width: 100%;
-                margin: 15px auto;
-            
-                button {
-                    @include button($text, $primary);
-                    font-size: 1.2rem;
-                    padding: 2px 20px;
+                &:hover {
+                    transform: scale(1.02);
+                    color: $contrast;
                 }
             }
-        }
+            .button_container {
+                @include flex-center;
+                justify-content: flex-end;
+                padding: 20px;
+                margin: auto;
+                margin-left: -30px;
+                width: 95%;
+
+                button {
+                    @include button($primary, $text);
+                    @include font(1.1rem, bold);
+                    padding: 5px 20px;
+
+                    &:hover {
+                        font-size: 1.2rem;
+                        color: $contrast;
+                        background-color: transparent;
+                        box-shadow: 0 0 10px 2px;
+                    }
+                }
+            }
+        } 
     }
 
     /* Desktop */
@@ -447,7 +481,7 @@ body {
             left: 0;
             z-index: 20000;
             background-color: grey;
-            opacity: 40%;
+            opacity: .4;
             cursor: pointer;
         }
         .contact_form {
@@ -455,105 +489,133 @@ body {
             top: 50%;
             left: -50%;
             transform: translate(-50%, -50%);
+            min-width: 380px;
             width: 40%;
             max-width: 450px;
             z-index: 21000;
-            background-color: $primary;
-            border: 2px solid $complimentry;
+            background-color: $text;
+            box-shadow: 0 0 10px 5px $primary;
             border-radius: .7rem;
             transition-duration: .4s;
         
-        
-            h1 {
+            .contact_heading {
+                @include font(calc($large_font + 2px), bold);
+                color: $primary;
                 text-align: center;
-                color: $text;
-                border: 2px solid $text;
-                border-right:none;border-left:none;
-                margin-bottom: 20px;
-            
-                &:hover {
-                    color: $contrast;
-                    border-color: $contrast;
-                }
+                display: block;
+                margin: 2vh auto;
+                width: 70%;
+                border: 2px solid $primary;
+                border-top: none;
+                border-bottom: none;
             }
+            .contact_info_container {
+                @include flex-center;
+                margin: 3vh 0 4vh 0;
 
-            .email_link_container {
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                width: 80%;
-                max-width: 225px;
-                height: 30px;
-                margin: auto;
-                margin-bottom: 20px;
-                font-size: 1rem;
-                padding: 0 5px;
-                color: $text;
-                border: 1px solid $text;
-                cursor: pointer;
-                transition-duration: .3s;
-            
-                &:hover {
-                    color: $contrast;
-                    border-color: $contrast;
+                .tool_tip_text {
+                    position: absolute;
+                    left: 0;
+                    right: 0;
+                    margin: auto;
+                    margin-top: -50px;
+                    width: 150px;
+                    text-align: center;
+                    opacity: 0;
+                    background-color: #555;
+                    @include font(1rem, bold);
+                    color: #fff;
+                    padding: 3px 5px;
+                    transition-duration: .2s;
                 }
-            
-                p {
-                    display: inline-block;
-                    margin-right: 5px;
+                &:hover .tool_tip_text {
+                    opacity: 1;
                 }
-            }
 
-            .tool_tip_text {
-                opacity: 0;
-                position: absolute;
-                margin-bottom: 60px;
-                background-color: #555;
-                color: #fff;
-                font-size: 1rem;
-                padding: 3px 5px;
-                transition-duration: .2s;
+                .contact_info_item {
+                    @include flex-center;
+                    @include font(.9rem, bold);
+                    color: $primary;
+                    text-align: center;
+                    margin: 5px 10px;
+                    padding: 0 10px;
+                    border: 1px solid $primary;
+                    border-radius: .5rem;
+                    transition-duration: .2s;
+                    cursor: pointer;
+
+                    &:hover {
+                        color: $contrast;
+                        border-color: $contrast;
+                    }
+
+                    .contact_info_text {
+                        padding-right: 10px;
+                        margin: 5px 0;
+                    }
+                }
             }
-            .email_link_container:hover .tool_tip_text {
-                opacity: 1;
-            }
-            
             input {
                 display: block;
-                width: 60%;
-                margin: 10px auto;
-                font-size: .9rem;
-                font-weight: bold;
-                padding: 5px 10px;
-                background-color: $text;
+                margin: 3vh auto;
+                padding: 10px 20px;
+                width: 70%;
+                @include font(1.1rem, light);
                 color: $primary;
                 border: none;
+                outline: $contrast;
+                border-radius: 1rem;
+                box-shadow: 0 0 10px 2px;
+                transition-duration: .2s;
+
+                &:hover {
+                   transform: scale(1.05);
+                   color: $contrast;
+                }
             }
             textarea {
                 display: block;
+                margin: 3vh auto 0 auto;
+                padding: 10px 20px;
+                @include font(.9rem, light);
                 min-width: 70%;
-                min-height: 15vh;
-                max-height: 280px;
-                max-width: 90%;
-                padding: 5px;
-                margin: 5px auto;
-                font-size: .9rem;
-                background-color: $text;
+                max-width: 80%;
+                min-height: 80px;
+                max-height: 200px;
                 color: $primary;
                 border: none;
-            }
+                outline: $contrast;
+                border-radius: 1rem;
+                box-shadow: 0 0 10px 2px;
+                transition-duration: .2s;
 
-            .contact_form_buttons_container {
-                @include flex-center;
-                width: 100%;
-                margin: 25px auto;
-            
-                button {
-                    @include button($text, $primary);
-                    padding: 3px 30px;
-                    font-size: 1.4rem;
+                &:hover {
+                    transform: scale(1.02);
+                    color: $contrast;
                 }
             }
+            .button_container {
+                @include flex-center;
+                justify-content: flex-end;
+                padding: 20px;
+                margin: auto;
+                margin-left: -30px;
+                width: 95%;
+
+                button {
+                    @include button($primary, $text);
+                    @include font(1.4rem, bold);
+                    padding: 5px 20px;
+
+                    &:hover {
+                        font-size: 1.5rem;
+                        color: $contrast;
+                        background-color: transparent;
+                        box-shadow: 0 0 10px 2px;
+                    }
+                }
+            }
+
         }
 
         .footer {

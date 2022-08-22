@@ -86,11 +86,13 @@ function Navbar() {
                     }}>
                         <FontAwesomeIcon icon={faAddressCard}/>
                     </i>
+
                     <i className='icon_container' id='skills_icon'  onClick={() => {
                         document.querySelector('#skills_section').scrollIntoView({ behavior: 'smooth' });
                     }}>
                         <FontAwesomeIcon icon={faListUl}/>
                     </i>
+
                     <i className='icon_container' id='projects_icon' onClick={() => {
                         document.querySelector('#projects_section').scrollIntoView({ behavior: 'smooth' });
                     }}>
@@ -201,18 +203,24 @@ function Contact() {
                 </p>
                 <div id='contact_form_background' className='contact_form_background' onClick={() => hideContactForm()}></div>
                 <div id='contact_form' className="contact_form">
-                    <h1>Email Me!</h1>
-                    <div className='email_link_container' onClick={() => baseScripts.copyText('text_to_copy')}>
+                    <p className='contact_heading'>Contact Me!</p>
+                    <div className='contact_info_container'>
                         <span className="tool_tip_text" id="tool_tip_text">Copy to clipboard</span>
-                        <p id='text_to_copy' className='text_to_copy'>justscott@email.com</p>
-                        <FontAwesomeIcon icon={faCopy}/>
+                        <span className='contact_info_item'>
+                            <p className='contact_info_text'>scottwyman@proton.com</p> 
+                            <FontAwesomeIcon icon={faCopy}/>
+                        </span>
+                        <span className='contact_info_item'>
+                            <p className='contact_info_text'>402-270-9644</p>
+                            <FontAwesomeIcon icon={faCopy}/>
+                        </span>
                     </div>
-                    <input type='text' id='sendersEmail' placeholder='Your Email Address...' maxLength='400' required />
+                    <input type='text' id='sendersEmail' placeholder='Your Contact Info...' maxLength='400' required />
                     <input type='text' id='subject' placeholder='Subject...' maxLength='200' required />
                     <textarea id='body' placeholder='Body...' maxLength='5000' required></textarea>
-                    <div className='contact_form_buttons_container'>
+                    <span className='button_container'>
                         <button onClick={() => sendEmail()}>Send</button>
-                    </div>
+                    </span>
                 </div>
             </>
         );

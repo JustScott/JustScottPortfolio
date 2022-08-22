@@ -3,7 +3,8 @@
 
 /* Tells the window what to show when calling window.print() */
 @media print {
-    @page { size: auto; margin: 0;}
+    @page { size: A4; margin: 0;}
+    body { width: 210mm; }
 
     #resume {
         position: fixed;
@@ -50,9 +51,9 @@
                     background-color: $text;
                     box-shadow: 0 0 3px 3px $primary;
                 } 
-            
+           
                 $distance: calc(100px + 12vw);
-                $corner-distance: calc(70px + 9vw);
+                $corner-distance: calc(70px + 10vw);
 
                 // Top
                 &:nth-child(2) {
@@ -105,19 +106,21 @@
             @include flex-center;
             flex-direction: column;
             width: 80%;
+            height: 80vh;
             max-width: 350px;
-            margin: 60px auto;
-            background-color: $primary;
+            margin: 0 auto;
             border-radius: .5rem;
             scroll-margin-top: 40px;
         
-            img {
-                width: 55%;
-                max-width: 140px;
-                margin: 10px;
-                box-shadow: 7px 7px 10px;
+            .intro_img_desktop {display: none}
+
+            .intro_img_mobile {
+                width: calc(130px + 18vw);
+                height: calc(130px + 18vw);
+                border-radius: 100%;
+                margin: 5vh;
+                box-shadow: 7px 7px 10px $primary;
                 transition-duration: .2s;
-                border-radius: .5rem;
 
                 &:hover {
                     box-shadow: none;
@@ -127,13 +130,13 @@
             .text_side {
                 @include flex-center;
                 flex-direction: column;
-                width: 80%;
+                width: 90%;
 
                 .desktop_about_text {display: none;}
                 .mobile_about_text {
-                    font-size: calc($small-font + 1px);
+                    @include font(calc($small-font + 4px), light);
                     text-align: center;
-                    color: $text;
+                    color: $primary;
                     padding: 10px 0;
                     border: 1px solid $text;
                     border-left:none;
@@ -142,11 +145,10 @@
 
                 button {
                     @include button($text, $primary);
-                    font-size: calc($medium-font - 2px);
-                    padding: 8px 15px;
-                    margin-top: 6px;
-                    margin-bottom: 16px;
-                
+                    font-size: calc($medium-font + 2px);
+                    padding: 12px 20px;
+                    margin: 5vh;
+
                     &:hover {
                         background-color: $contrast;
                         color: $text;
@@ -158,8 +160,8 @@
             .selected_item_text_container {
                 @include flex-center;
                 flex-direction: column;
-                width: calc(80px + 30vw);
-                height: calc(80px + 30vw);
+                width: calc(95px + 23vw);
+                height: calc(95px + 23vw);
                 text-align: center;
                 color: $primary;
                 border: 3px solid $primary;
@@ -194,6 +196,7 @@
             padding: 25px;
 
             .floating_arrow {
+                display: none;
                 @include flex-center;
                 position: absolute;
                 top: 0;
@@ -209,14 +212,14 @@
                 cursor: pointer;
                 transition-duration: .2s;
 
-                animation: {
+                -webkit-animation: {
                     duration: .6s;
                     timing-function: linear;
                     iteration-count: 4;
                 }
 
                 @keyframes floating-arrow {
-                    from {
+                    0% {
                         -webkit-transform: translate(20px);
                         transform: translate(20px);
                     }
@@ -224,7 +227,7 @@
                         -webkit-transform: translate(5px);
                         transform: translate(5px);
                     }
-                    to {
+                    100% {
                         -webkit-transform: translate(20px);
                         transform: translate(20px);
                     }
@@ -340,7 +343,9 @@
             color: $primary;
             scroll-margin-top: 200px;
 
-            img {
+            .intro_img_mobile {display: none}
+
+            .intro_img_desktop {
                 display: block;
                 width: 25vw;
                 max-width: 350px;
@@ -354,15 +359,14 @@
             }
             .text_side {
                 text-align: center;
-                width: 50%;
+                width: 60%;
                 max-width: 500px;
                 margin-left: 10%;
                 align-self: center;	
             
                 .mobile_about_text {display: none;}
                 .desktop_about_text {
-                    @include font($medium-font, bold);
-                    font-weight: bold;
+                    @include font($medium-font, light);
                     font-size: calc(.6rem + .8vw);
                     color: $primary;
                 }

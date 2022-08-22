@@ -39,16 +39,15 @@ export default class Home extends React.Component {
 function Intro() {
     return (
         <div className='intro_section' id='intro_section'>
-            <img src='bodyshot.jpg' alt='Me'/>
+            <img src='headshot.png' alt='Me' className='intro_img_mobile'/>
+            <img src='bodyshot.jpg' alt='Me' className='intro_img_desktop'/>
             <div className='text_side'>
                 <p className='desktop_about_text'>
-                    This is filler text about me an what I do, this should be
-                    around two sentences long. So that means I need to make this
-                    another sentence long just like this.
+                    I'm <b>Scott</b>, a <b>Full Stack Web Developer</b> utilizing <b>React</b> and <b>NodeJS</b> to create  
+                    <b> Modern, Fast, Responsive</b>, and <b>Minimalistic</b>, websites.
                 </p>
                 <p className='mobile_about_text'>
-                    This is mobile filler text, that will be much more consice to save
-                    space.
+                    I'm <b>Scott</b>. I create <b> Modern</b>, <b>Fast</b>, <b>Responsive</b>, and <b>Minimalistic</b>, websites.
                 </p>
                 <button onClick={() => {window.print()}}>Resume</button>
             </div>
@@ -65,13 +64,13 @@ function Skills() {
                     <p className='selected_item_text'>Click a Logo to learn more.</p>
                 </div>
                 <img src='python_logo.png' alt='Python Logo' onClick={() => {updateText('Python')}}/>
-                <img src='node_logo.png' alt='Python Logo' onClick={() => {updateText('Node')}}/>
-                <img src='react_logo.png' alt='Python Logo' onClick={() => {updateText('React')}}/>
-                <img src='sass_logo.png' alt='Python Logo' onClick={() => {updateText('Sass')}}/>
-                <img src='mysql_logo.png' alt='Python Logo' onClick={() => {updateText('MySQL')}}/>
-                <img src='mongodb_logo.png' alt='Python Logo' onClick={() => {updateText('MongoDB')}}/>
-                <img src='aws_logo.png' alt='Python Logo' onClick={() => {updateText('AWS')}}/>
-                <img src='linux_logo.png' alt='Python Logo' onClick={() => {updateText('Linux')}}/>
+                <img src='node_logo.png' alt='Node Logo' onClick={() => {updateText('Node')}}/>
+                <img src='react_logo.png' alt='React Logo' onClick={() => {updateText('React')}}/>
+                <img src='sass_logo.png' alt='Sass Logo' onClick={() => {updateText('Sass')}}/>
+                <img src='mysql_logo.png' alt='MySQL Logo' onClick={() => {updateText('MySQL')}}/>
+                <img src='mongodb_logo.png' alt='MongoDB Logo' onClick={() => {updateText('MongoDB')}}/>
+                <img src='aws_logo.png' alt='AWS Logo' onClick={() => {updateText('AWS')}}/>
+                <img src='linux_logo.png' alt='Linux Logo' onClick={() => {updateText('Linux')}}/>
             </div>
         </div>
     );
@@ -80,38 +79,35 @@ function Skills() {
         const skills = {
             'Python': 
                 `
-                I've been using python for hobby projects, for a few years now.
+                Python was my first language, and I've uploaded a few packages to the python package index.
                 `,
             'Node': 
                 `
-                While I'm relatively new to node, I've been using/learning Javascript for
-                a few years now.
+                Node allows me to use my javascript skills on the server side.
                 `,
             'React': 
                 `
-                React is my go-to tool for front-end development, and I'm learning more
-                about it everyday!
+                React is my go-to tool for front-end development!
                 `,
             'Sass': 
                 `
-                I started with Sass not too long ago, but have been using css for years.
+                Sass makes my css development much more efficient.
                 `,
             'MySQL': 
                 `
-                MySQL and SQLite3 have been database choice for many small projects over the years.
+                MySQL is a great tool for structure data storage!
                 `,
             'MongoDB': 
                 `
-                MongoDB is to new to me, but I'm quite enjoying the ease of use and speed!
+                MongoDB is a great tool for fast, unstructured data storage!
                 `,
             'AWS': 
                 `
-                I'm working towards the 'Cloud Practitioner' certifcation, and so far this service
-                continues to intrigue and amaze me!
+                AWS is used everywhere, thats why I'm working towards the 'Cloud Practitioner' certification!
                 `,
             'Linux': 
                 `
-                I've used Linux as a daily driver for years now, it's absolutely my favorite thing, Ever.
+                I've used Linux as a daily driver for years now, its an integral part of my workflow!
                 `,
         }
 
@@ -127,13 +123,29 @@ function Skills() {
 function Projects() {
 
     useEffect(() => {
+        const container = document.querySelector('#projects_section');
+        const arrow = document.querySelector('#floating_arrow');
+
+        if (window.screen.width < 750) {
+            if (animations.checkInView(container)) {
+                arrow.style['-webkit-animation-name'] = 'floating-arrow';
+                arrow.addEventListener("animationend", () => {
+                    arrow.style.display = 'none';
+                });
+            }else {
+                setTimeout(() => {
+                    arrow.style.display = 'flex';
+                }, 1000)
+            }
+        }
+
         window.addEventListener('scroll', () => {
             const container = document.querySelector('#projects_section');
             const arrow = document.querySelector('#floating_arrow');
 
             if (window.screen.width < 750) {
                 if (animations.checkInView(container)) {
-                    arrow.style.animationName = 'floating-arrow';
+                    arrow.style['-webkit-animation-name'] = 'floating-arrow';
                     arrow.addEventListener("animationend", () => {
                         arrow.style.display = 'none';
                     });

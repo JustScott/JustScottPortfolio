@@ -142,7 +142,7 @@ function Navbar() {
             let navbarLinks = document.querySelector('.navbar_external_links');
 
             // Maximize the Navbar
-            navbarContainer.style.height = '100vh';
+            navbarContainer.style.height = '100%';
             navbarContainer.style.borderRadius = 0;
             navbarIcon.style.animationName = 'downArrow';
 

@@ -281,13 +281,10 @@ body {
                 margin: 3vh 0 4vh 0;
 
                 .tool_tip_text {
-                    position: absolute;
-                    left: 0;
-                    right: 0;
+                    position: absolute; 
                     margin: auto;
                     margin-top: -100px;
                     text-align: center;
-                    width: 160px;
                     opacity: 0;
                     background-color: #555;
                     @include font(.7rem, bold);
@@ -522,11 +519,8 @@ body {
 
                 .tool_tip_text {
                     position: absolute;
-                    left: 0;
-                    right: 0;
                     margin: auto;
                     margin-top: -70px;
-                    width: 230px;
                     text-align: center;
                     opacity: 0;
                     background-color: #555;

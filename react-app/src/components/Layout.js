@@ -4,7 +4,7 @@ import { Outlet } from 'react-router-dom';
 import axios from 'axios';
 
 /* Import Local Scripts */
-import baseScripts from '../scripts/base';
+import base from '../scripts/base';
 import distanceFiller from '../scripts/navigation';
 
 /* Icon Imports */
@@ -107,7 +107,7 @@ function Navbar() {
         return (
             <div className="navbar_external_links">
                 <Link 
-                    href='https://www.linkedin.com'
+                    href='https://www.linkedin.com/in/scottawyman/'
                     icon={faLinkedin}
                 />
                 <Link 
@@ -205,18 +205,18 @@ function Contact() {
                 <div id='contact_form' className="contact_form">
                     <p className='contact_heading'>Contact Me!</p>
                     <div className='contact_info_container'>
-                        <span className="tool_tip_text" id="tool_tip_text">Copy to clipboard</span>
-                        <span className='contact_info_item'>
-                            <p className='contact_info_text'>scottwyman@proton.com</p> 
+                        <p className="tool_tip_text" id="tool_tip_text">Copy to Clipboard</p>
+                        <span className='contact_info_item' onClick={() => base.copyText('email')}>
+                            <input type='text' className='contact_info_text' id='email' size='19' readOnly value='scottwyman@proton.com'/> 
                             <FontAwesomeIcon icon={faCopy}/>
                         </span>
-                        <span className='contact_info_item'>
-                            <p className='contact_info_text'>402-270-9644</p>
+                        <span className='contact_info_item' onClick={() => base.copyText('number')}>
+                            <input type='text' className='contact_info_text' id='number' size='10' readOnly value='402-270-9644'/>
                             <FontAwesomeIcon icon={faCopy}/>
                         </span>
                     </div>
-                    <input type='text' id='sendersEmail' placeholder='Your Contact Info...' maxLength='400' required />
-                    <input type='text' id='subject' placeholder='Subject...' maxLength='200' required />
+                    <input type='text' className='contact_input' id='sendersEmail' placeholder='Your Contact Info...' maxLength='400' required />
+                    <input type='text' id='subject' className='contact_input' placeholder='Subject...' maxLength='200' required />
                     <textarea id='body' placeholder='Body...' maxLength='5000' required></textarea>
                     <span className='button_container'>
                         <button onClick={() => sendEmail()}>Send</button>
@@ -278,6 +278,7 @@ function Contact() {
         backgroundElement.style.display = 'none';
         
         let formElement = document.querySelector('#contact_form');
+        formElement.style.opacity = '0';
         formElement.style.left = '-50%';
     }
     function displayContactForm() {
@@ -285,6 +286,7 @@ function Contact() {
         backgroundElement.style.display = 'block';	
     
         let formElement = document.querySelector('#contact_form'); 
+        formElement.style.opacity = '1';
         formElement.style.left = '50%';
     }
 }
@@ -294,7 +296,7 @@ function Footer() {
         <div className='footer' id='footer'>
             <div className="footer_external_links">
                 <Link 
-                    href='https://www.github.com/JustScott'
+                    href='https://www.linkedin.com/in/scottawyman/'
                     icon={faLinkedin}
                 />
                 <Link 

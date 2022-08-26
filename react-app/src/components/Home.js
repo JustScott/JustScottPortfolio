@@ -159,7 +159,9 @@ function Projects() {
     })
 
     return (
-        <div className='projects_section' id='projects_section'>
+        <div className='projects_section' id='projects_section' onScroll={() => {
+            document.getElementById('floating_arrow').style.display = 'none';
+        }}>
             <i className='floating_arrow' id='floating_arrow'><FontAwesomeIcon icon={faArrowRightLong}/></i>
             <Project 
                 title='ListCrypt'

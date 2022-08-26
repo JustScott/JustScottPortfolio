@@ -7,24 +7,18 @@ function removeChildren(parent) {
 /**
  *	Copies the text of the supplied ID
  */
- function copyText(ID) {
+function copyText(ID) {
     let textContainer = document.getElementById(ID);
 	let toolTip = document.querySelector('#tool_tip_text'); 
 
-	if (textContainer.innerHTML === undefined) {
-		navigator.clipboard.writeText(textContainer.value).then(function() {
-  			toolTip.innerHTML = 'Copied to clipboard!'
-		}, function() {
-  			alert("Couldn't Copy Text");
-		});
-	}
-	else {
-		navigator.clipboard.writeText(textContainer.innerHTML).then(function() {
-  			toolTip.innerHTML = 'Copied to clipboard!'
-		}, function() {
-  			alert("Couldn't Copy Text");
-		});
-	}
+    /* Select the text field */
+    textContainer.select();
+    textContainer.setSelectionRange(0, 99999); /* For mobile devices */
+
+    /* Copy the text inside the textContainer */
+    navigator.clipboard.writeText(textContainer.value); 
+
+    toolTip.innerHTML = `Copied ${textContainer.value}`;
 }
 
 function fixTextareaBehavior() {

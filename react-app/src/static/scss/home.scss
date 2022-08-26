@@ -212,23 +212,20 @@
                 cursor: pointer;
                 transition-duration: .2s;
 
-                -webkit-animation: {
+                animation: {
                     duration: .6s;
                     timing-function: linear;
-                    iteration-count: 4;
+                    iteration-count: 3;
                 }
 
                 @keyframes floating-arrow {
-                    0% {
-                        -webkit-transform: translate(20px);
+                    from {
                         transform: translate(20px);
                     }
                     50% {
-                        -webkit-transform: translate(5px);
                         transform: translate(5px);
                     }
-                    100% {
-                        -webkit-transform: translate(20px);
+                    to {
                         transform: translate(20px);
                     }
                 }

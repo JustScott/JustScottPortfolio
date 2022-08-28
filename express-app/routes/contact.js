@@ -43,7 +43,7 @@ function sendEmail(sendersEmail, subject, body) {
     });
 }
 
-router.post('/api/contact', (req, res) => {
+router.post('/contact', (req, res) => {
     data = req.body; // JavaScript object containing the parse JSON
 
     sendEmail(data.sendersEmail, data.subject, data.body);

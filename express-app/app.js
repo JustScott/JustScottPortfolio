@@ -18,7 +18,11 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
-app.use(cors({ origin: 'https://www.justscott.me' , credentials :  true}));
+app.use(cors({
+    origin: ['https://www.justscott.me','https://justscott.me'],
+    methods: ['Post'],
+    credentials:  true
+}));
 
 app.use('/', contactRouter);
 

@@ -44,10 +44,10 @@ function Intro() {
             <div className='text_side'>
                 <p className='desktop_about_text'>
                     I'm <b>Scott</b>, a <b>Full Stack Web Developer</b> utilizing <b>React</b> and <b>NodeJS</b> to create  
-                    <b> Modern, Fast, Responsive</b>, and <b>Minimalistic</b>, websites.
+                    <b> Modern</b> and <b>Fast</b>, <b>Minimalistic</b>, websites.
                 </p>
                 <p className='mobile_about_text'>
-                    I'm <b>Scott</b>. I create <b> Modern</b>, <b>Fast</b>, <b>Responsive</b>, and <b>Minimalistic</b>, websites.
+                    I'm <b>Scott</b>. I create <b> Modern</b> and <b>Fast</b>, <b>Minimalistic</b>, websites.
                 </p>
                 <button onClick={() => {window.print()}}>Resume</button>
             </div>
@@ -77,37 +77,38 @@ function Skills() {
 
     function updateText(skill) {
         const skills = {
-            'Python': 
+            'Python':  
                 `
-                Python was my first language, and I've uploaded a few packages to the python package index.
+                <b>Python</b> was my first and favorite language. I have multiple packages available 
+                on my <b><a href='https://pypi.org/user/JustScott/'>PYPI Account</a></b>.
                 `,
             'Node': 
                 `
-                Node allows me to use my javascript skills on the server side.
+                <b>Node</b> allows me to create fast, asynchronus API's.
                 `,
             'React': 
                 `
-                React is my go-to tool for front-end development!
+                <b>React</b> is my go-to tool for front-end development!
                 `,
             'Sass': 
                 `
-                Sass makes my css development much more efficient.
+                <b>Sass</b> makes my css development much more efficient.
                 `,
             'MySQL': 
                 `
-                MySQL is a great tool for structure data storage!
+                <b>MySQL</b> has been my primary databasing tool for python projects.
                 `,
             'MongoDB': 
                 `
-                MongoDB is a great tool for fast, unstructured data storage!
+                I'm relatively new to <b>MongoDB</b>, but am quickly catching on as I use it in my new projects.
                 `,
             'AWS': 
                 `
-                AWS is used everywhere, thats why I'm working towards the 'Cloud Practitioner' certification!
+                I'm currently working towards the <b>AWS Cloud Practitioner</b> certification!
                 `,
             'Linux': 
                 `
-                I've used Linux as a daily driver for years now, its an integral part of my workflow!
+                I've used <b>Linux</b> as a daily driver for years now, it's an <b>integral</b> part of my workflow!
                 `,
         }
 

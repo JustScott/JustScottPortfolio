@@ -30,6 +30,8 @@ import '../static/scss/layout.scss';
 
 export default class Layout extends React.Component {
     render() {
+        document.title = 'Home';
+
         return (
             <>
                 <Navbar />

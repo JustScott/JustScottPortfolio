@@ -166,7 +166,7 @@
                 color: $primary;
                 border: 3px solid $primary;
                 border-radius: 50%;
-                padding: 10px;
+                padding: 15px;
 
                 .selected_item_heading {
                     @include font(calc($medium-font + 8px), bold);
@@ -174,7 +174,7 @@
                 }
                 
                 .selected_item_text {
-                    @include font(calc($small-font + 3px), bold); 
+                    @include font(calc($small-font + 4px), light); 
                     margin: 10px;
                 }
             }
@@ -393,7 +393,7 @@
                 }
                 
                 .selected_item_text {
-                    @include font(calc($small-font - 2px), bold); 
+                    @include font(calc($small-font - 2px), light); 
                     margin: 10px;
                 }
             }

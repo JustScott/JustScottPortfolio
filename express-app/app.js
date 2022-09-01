@@ -19,7 +19,7 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(cors({
-    origin: ['https://www.justscott.me','https://justscott.me'],
+    origin: ['https://www.scottwyman.me','https://scottwyman.me'],
     methods: ['Post'],
     credentials:  true
 }));

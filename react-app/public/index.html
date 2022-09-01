@@ -12,9 +12,59 @@
     <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
     <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
     <title>My Portfolio</title>
+
+    <style>
+      body {
+        margin: 0;
+      }
+      .loading-screen {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100vw;
+        height: 100vh;
+        background-color: var(--primary-color);
+      }
+      .loading-screen .ball {
+        display: block;
+        width: 25px;
+        height: 25px;
+        border-radius: 50%;
+        background-color: white;
+        margin: 0 20px;
+        animation: bouncing_ball 1s linear 0s infinite;
+      }
+      .second { 
+        animation-delay: .1s !important;
+
+      }
+      .third { 
+        animation-delay: .2s !important;
+
+      }
+      @keyframes bouncing_ball {
+        from {
+
+        }
+        50% {
+          margin-bottom: 110px;
+        }
+        to {
+          margin: 0 20px;
+        }
+      }
+
+    </style>
+
   </head>
   <body>
     <noscript>You need to enable JavaScript to run this app.</noscript>
-    <div id="root"></div>
+    <div id="root">
+      <div class="loading-screen">
+        <span class="ball first"></span>
+        <span class="ball second"></span>
+        <span class="ball third"></span>
+      </div>
+    </div>
   </body>
 </html>

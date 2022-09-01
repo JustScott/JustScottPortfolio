@@ -209,7 +209,7 @@ function Contact() {
                     <div className='contact_info_container'>
                         <p className="tool_tip_text" id="tool_tip_text">Copy to Clipboard</p>
                         <span className='contact_info_item' onClick={() => base.copyText('email')}>
-                            <input type='text' className='contact_info_text' id='email' size='19' readOnly value='scottwyman@proton.com'/> 
+                            <input type='text' className='contact_info_text' id='email' size='19' readOnly value='business@scottwyman.me'/> 
                             <FontAwesomeIcon icon={faCopy}/>
                         </span>
                         <span className='contact_info_item' onClick={() => base.copyText('number')}>

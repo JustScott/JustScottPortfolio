@@ -44,10 +44,10 @@ function Intro() {
             <div className='text_side'>
                 <p className='desktop_about_text'>
                     I'm <b>Scott</b>, a <b>Full Stack Web Developer</b> utilizing <b>React</b> and <b>NodeJS</b> to create  
-                    <b> Modern</b> and <b>Fast</b>, <b>Minimalistic</b>, websites.
+                    <b> Modern</b> and <b>Fast</b>, <b>Minimalistic</b> websites.
                 </p>
                 <p className='mobile_about_text'>
-                    I'm <b>Scott</b>. I create <b> Modern</b> and <b>Fast</b>, <b>Minimalistic</b>, websites.
+                    I'm <b>Scott</b>. I create <b> Modern</b> and <b>Fast</b>, <b>Minimalistic</b> websites.
                 </p>
                 <button onClick={() => {window.print()}}>Resume</button>
             </div>

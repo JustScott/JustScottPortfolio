@@ -6,9 +6,9 @@ ENV PORT 3000
 
 COPY package.json /react-app/package.json
 
-RUN npm install
-
 COPY . /react-app
+
+RUN npm install -g npm@latest
 
 RUN npm run build
     

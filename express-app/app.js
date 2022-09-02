@@ -11,9 +11,8 @@ var app = express();
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
-app.set('view engine', 'jade');
+app.set('view engine', 'pug');
 
-app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
@@ -45,5 +44,12 @@ app.use(function(err, req, res, next) {
   res.status(err.status || 500);
   res.render('error');
 });
+
+if(process.env.NODE_ENV === 'production') {
+    console.log('\n\nProduction Mode\n\n')
+} else {
+    console.log('\n\nFAIL!\n\n')
+}
+
 
 module.exports = app;

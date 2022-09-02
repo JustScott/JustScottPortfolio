@@ -27,7 +27,7 @@ class App extends React.Component {
 
 	componentDidMount() {
 		// Shows the loading screen while the site assets load in
-		let test = new Promise( resolve => setTimeout(resolve, 700));
+		let test = new Promise( resolve => setTimeout(resolve, 1500));
 		test.then( () => {
 			document.querySelector('.loading-screen').style.animationName = 'close_loading_screen';
 		});

@@ -45,11 +45,4 @@ app.use(function(err, req, res, next) {
   res.render('error');
 });
 
-if(process.env.NODE_ENV === 'production') {
-    console.log('\n\nProduction Mode\n\n')
-} else {
-    console.log('\n\nFAIL!\n\n')
-}
-
-
 module.exports = app;

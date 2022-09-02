@@ -10,6 +10,8 @@ COPY . /react-app
 
 RUN npm install -g npm@latest
 
+RUN npm install --omit=dev
+
 RUN npm run build
     
 RUN npm install -g serve

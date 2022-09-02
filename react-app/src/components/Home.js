@@ -1,5 +1,5 @@
 /* Third Party Imports */
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 
 /* Icon Imports */
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -56,12 +56,17 @@ function Intro() {
 }
 
 function Skills() {
+    const [ title, setTitle ] = useState('Click One!');
+    const [ description, setDescription ] = useState(
+        <p className='selected_item_text'>Click a Logo to learn more.</p>
+    );
+
     return (
         <div>
             <div className='skills_section' id='skills_section'>
                 <div className='selected_item_text_container'>
-                    <p className='selected_item_heading'>Click One!</p>
-                    <p className='selected_item_text'>Click a Logo to learn more.</p>
+                    <p className='selected_item_heading'><b>{title}</b></p>
+                    {description}
                 </div>
                 <img src='python_logo.png' alt='Python Logo' onClick={() => {updateText('Python')}}/>
                 <img src='node_logo.png' alt='Node Logo' onClick={() => {updateText('Node')}}/>
@@ -78,45 +83,43 @@ function Skills() {
     function updateText(skill) {
         const skills = {
             'Python':  
-                `
-                <b>Python</b> was my first and favorite language. I have multiple packages available 
-                on my <b><a href='https://pypi.org/user/JustScott/'>PYPI Account</a></b>.
-                `,
+                <p className='selected_item_text'>
+                    <b>Python</b> was my first and favorite language. I have multiple packages available 
+                    on my <b><a href='https://pypi.org/user/JustScott/'>PYPI Account</a></b>.
+                </p>,
             'Node': 
-                `
-                <b>Node</b> allows me to create fast, asynchronus API's.
-                `,
+                <p className='selected_item_text'>
+                    <b>Node</b> allows me to create fast, asynchronus API's.
+                </p>,
             'React': 
-                `
-                <b>React</b> is my go-to tool for front-end development!
-                `,
+                <p className='selected_item_text'>
+                    <b>React</b> is my go-to tool for front-end development!
+                </p>,
             'Sass': 
-                `
-                <b>Sass</b> makes my css development much more efficient.
-                `,
+                <p className='selected_item_text'>
+                    <b>Sass</b> makes my css development much more efficient.
+                </p>,
             'MySQL': 
-                `
-                <b>MySQL</b> has been my primary databasing tool for python projects.
-                `,
+                <p className='selected_item_text'>
+                    <b>MySQL</b> has been my primary databasing tool for python projects.
+                </p>,
             'MongoDB': 
-                `
-                I'm relatively new to <b>MongoDB</b>, but am quickly catching on as I use it in my new projects.
-                `,
+                <p className='selected_item_text'>
+                    I'm relatively new to <b>MongoDB</b>, but am quickly catching on as I use it in my new projects.
+                </p>,
             'AWS': 
-                `
-                I'm currently working towards the <b>AWS Cloud Practitioner</b> certification!
-                `,
+                <p className='selected_item_text'>
+                    I'm currently working towards the <b>AWS Cloud Practitioner</b> certification!
+                </p>,
             'Linux': 
-                `
-                I've used <b>Linux</b> as a daily driver for years now, it's an <b>integral</b> part of my workflow!
-                `,
+                <p className='selected_item_text'>
+                    I've used <b>Linux</b> as a daily driver for years now, it's an <b>integral</b> part of my workflow!
+                </p>,
         }
 
-        const heading = document.querySelector('.selected_item_heading');
-        const description = document.querySelector('.selected_item_text');
+        setTitle(skill);
+        setDescription(skills[skill]);
 
-        heading.innerHTML = skill;
-        description.innerHTML = skills[skill];
     }
 
 }

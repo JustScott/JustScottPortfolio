@@ -1,4 +1,5 @@
 const noAnimationID = [
+    'loading-screen',
     'navbar',
     'contact_form_background',
     'contact_form',

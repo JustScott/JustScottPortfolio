@@ -12,6 +12,9 @@ import NoPage from './components/NoPage.js';
 import animations from './scripts/inViewAnimation.js';
 import baseScripts from './scripts/base.js';
 
+/* Styles */
+import './static/scss/index.scss'
+
 
 class App extends React.Component {
 	constructor(props) {
@@ -21,7 +24,15 @@ class App extends React.Component {
 		};
 	}
 
+
 	componentDidMount() {
+		// Shows the loading screen while the site assets load in
+		let test = new Promise( resolve => setTimeout(resolve, 700));
+		test.then( () => {
+			document.querySelector('.loading-screen').style.animationName = 'close_loading_screen';
+		});
+
+		// Adds the scroll animation to most elements on the page
         animations.childOpacityToZero();
         animations.animateOnView();
         window.addEventListener('scroll', animations.animateOnView)

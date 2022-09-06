@@ -19,13 +19,13 @@ function sendEmail(sendersEmail, subject, body) {
 
     let mailDetails = {
         from: sendersEmail,
-        to: 'telephoneemail@protonmail.com',
+        to: 'business@scottwyman.me',
         subject: subject,
-        text: ` - Sent By: -
-                -----------
-                ${sendersEmail}
-                -----------
-                \n\n${body}`,
+        text: ` Sent By --> ${sendersEmail}
+                \n\n
+                ---------------------------
+                \n
+                ${body}`,
     };
 
     mailTransporter.sendMail(mailDetails, function(err, data) {

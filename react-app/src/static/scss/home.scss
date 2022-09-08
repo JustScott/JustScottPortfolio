@@ -181,13 +181,12 @@
         }
 
         .projects_section {
-            $height: 35vh;
+            $height: 37vh;
 
-            display: grid;
-            justify-items: center;
+            display: flex;
+            justify-content: flex-start;
             align-items: center;
-            grid-template-columns: repeat(3, 1fr);
-            grid-gap: 20px;
+            gap: 20px;
             height: $height;
             min-height: 220px;
             margin: 30vh auto;
@@ -213,9 +212,9 @@
                 transition-duration: .2s;
 
                 animation: {
-                    duration: .6s;
+                    duration: 1s;
                     timing-function: linear;
-                    iteration-count: 3;
+                    iteration-count: infinite;
                 }
 
                 @keyframes floating-arrow {
@@ -236,7 +235,7 @@
 
                 @include flex-center;
                 flex-direction: column;
-                width: $width;
+                flex: 0 0 $width;
                 height: $height;
                 margin: 0 20px;
                 background-color: $primary;
@@ -251,6 +250,38 @@
                 .project_icon {
                     font-size: 4rem;
                     color: $text;
+                }
+
+                .desktop-project-hover-box {display:none;}
+                .mobile-project-click-box {
+                    @include font(calc($small-font + 3px), bold);
+                    color: $primary;
+                    background-color: white;
+                    padding: 5px 10px;
+                    border-radius: .5rem;
+                    overflow: hidden;
+
+                    -webkit-animation: {
+                        duration: .5s;
+                        timing-function: linear;
+                        iteration-count: 1;
+                        fill-mode: forwards;
+                    }
+                    
+                    @keyframes remove-click-box {
+                        50% {
+                            opacity: 0;
+                        }
+                        100% {
+                            opacity: 0;
+                            bottom: 0;
+                            position: absolute;
+                        }
+                    }
+                }
+
+                &:hover .mobile-project-click-box {
+                    animation-name: remove-click-box;
                 }
 
                 .project_details {
@@ -439,6 +470,39 @@
                 .project_icon {
                     font-size: 4rem;
                     color: $text;
+                }
+
+                .mobile-project-click-box {display:none;}
+                .desktop-project-hover-box {
+                    display: block;
+                    @include font(calc($small-font), bold);
+                    color: $primary;
+                    background-color: white;
+                    padding: 5px 10px;
+                    border-radius: .5rem;
+                    overflow: hidden;
+
+                    -webkit-animation: {
+                        duration: 1s;
+                        timing-function: linear;
+                        iteration-count: 1;
+                        fill-mode: forwards;
+                    }
+                    
+                    @keyframes remove-hover-box {
+                        50% {
+                            opacity: 0;
+                        }
+                        100% {
+                            opacity: 0;
+                            bottom: 0;
+                            position: absolute;
+                        }
+                    }
+                }
+
+                &:hover .desktop-project-hover-box {
+                    animation-name: remove-hover-box;
                 }
 
                 .project_details {

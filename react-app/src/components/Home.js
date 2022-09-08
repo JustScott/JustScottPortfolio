@@ -9,6 +9,8 @@ import
         faLock, 
         faWifi,
         faDisplay,
+        faKey,
+        faHandPointUp,
     } 
     from "@fortawesome/free-solid-svg-icons";
 
@@ -168,11 +170,13 @@ function Projects() {
         }}>
             <i className='floating_arrow' id='floating_arrow'><FontAwesomeIcon icon={faArrowRightLong}/></i>
             <Project 
-                title='ListCrypt'
-                description='ListCrypt is a custom cryptographic algorithm I developed entirely in Python3'
-                icon={faLock}
-                homeLink='https://www.github.com/JustScott/ListCrypt'
+                title='JustScottPortfolio' 
+                description='This is the website your currently on!'
+                icon={faDisplay}
+                homeLink='https://www.github.com/JustScott/JustScottPortfolio'
                 homeIcon={faGithub}
+                callToActionMobile={<p className='mobile-project-click-box'>Click To Learn More <FontAwesomeIcon icon={faHandPointUp}/></p>}
+                callToActionDesktop={<p className='desktop-project-hover-box'>Hover To Learn More <FontAwesomeIcon icon={faHandPointUp}/></p>}
             />
             <Project 
                 title='SuperSockets'
@@ -182,10 +186,17 @@ function Projects() {
                 homeIcon={faGithub}
             />
             <Project 
-                title='JustScottPortfolio' 
-                description='This is the website your currently on!'
-                icon={faDisplay}
-                homeLink='https://www.github.com/JustScott/JustScottPortfolio'
+                title='ListCrypt'
+                description='ListCrypt is a custom cryptographic algorithm I developed in Python3'
+                icon={faLock}
+                homeLink='https://www.github.com/JustScott/ListCrypt'
+                homeIcon={faGithub}
+            />
+            <Project 
+                title='RapidRSA' 
+                description={<p>RapidRSA is an easier to use implementation of <a href='https://github.com/Legrandin/pycryptodome'>pycryptodome's</a> RSA module</p>}
+                icon={faKey}
+                homeLink='https://www.github.com/JustScott/RapidRSA'
                 homeIcon={faGithub}
             />
         </div>
@@ -195,11 +206,15 @@ function Projects() {
         return (
             <div className='project_container' onMouseOver={() => {
                 document.getElementById(props.title).style.animationName = 'cover-container';
+                document.querySelector('.mobile-project-click-box').style.animationName = 'remove-click-box';
+                document.querySelector('.desktop-project-hover-box').style.animationName = 'remove-hover-box';
             }} onMouseOut={() => {
                 document.getElementById(props.title).style.animationName = 'uncover-container';
             }}>
                 <p className='project_title'>{props.title}</p>
                 <i className='project_icon'><FontAwesomeIcon icon={props.icon}/></i>
+                {props.callToActionMobile}
+                {props.callToActionDesktop}
                 <div className='project_details' id={props.title}>
                     <p className='project_description'>{props.description}</p>
                     <a href={props.homeLink} className='project_home_icon_link'><FontAwesomeIcon icon={props.homeIcon}/></a>

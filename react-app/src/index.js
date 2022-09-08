@@ -17,21 +17,8 @@ import './static/scss/index.scss'
 
 
 class App extends React.Component {
-	constructor(props) {
-		super(props);
-		this.state = {
-
-		};
-	}
-
 
 	componentDidMount() {
-		// Shows the loading screen while the site assets load in
-		let test = new Promise( resolve => setTimeout(resolve, 1500));
-		test.then( () => {
-			document.querySelector('.loading-screen').style.animationName = 'close_loading_screen';
-		});
-
 		// Adds the scroll animation to most elements on the page
         animations.childOpacityToZero();
         animations.animateOnView();

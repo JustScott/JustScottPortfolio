@@ -42,7 +42,11 @@ function Intro() {
     return (
         <div className='intro_section' id='intro_section'>
             <img src='headshot.png' alt='Me' className='intro_img_mobile'/>
-            <img src='bodyshot.jpg' alt='Me' className='intro_img_desktop'/>
+            <img src='bodyshot.jpg' alt='Me' className='intro_img_desktop' onLoad={ () => {
+                setTimeout( () => {
+                    document.querySelector('.loading-screen').style.animationName = 'close_loading_screen';
+                }, 700)
+            }}/>
             <div className='text_side'>
                 <p className='desktop_about_text'>
                     I'm <b>Scott</b>, a <b>Full Stack Web Developer</b> utilizing <b>React</b> and <b>NodeJS</b> to create  

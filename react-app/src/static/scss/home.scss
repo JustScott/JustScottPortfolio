@@ -400,7 +400,7 @@
                 }
             
                 button {
-                    @include button($contrast, $text);
+                    @include button($text, $primary);
                     margin-top: 40px;
                 }
             }

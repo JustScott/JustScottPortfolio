@@ -62,6 +62,11 @@ function Navbar() {
         <>
             <div className='navbar_mobile' id='navbar'>
                 <ExternalLinks />
+                    <a 
+                    className="copyright-notice-mobile" 
+                    href='https://github.com/JustScott/JustScottPortfolio/blob/main/LICENSE'
+                    > Copyright (c) 2022 Scott
+                </a>
 
                 <div className='nav_items_container'>
                     <a href='#intro_section' onClick={() => openOrCloseNavbar()}>Intro</a>
@@ -144,6 +149,7 @@ function Navbar() {
             let navbarItemsContainer = document.querySelector('.nav_items_container');
             let navbarIcon = document.querySelector('.navbar_open_icon');
             let navbarLinks = document.querySelector('.navbar_external_links');
+            let copyrightNotice = document.querySelector('.copyright-notice-mobile');
 
             // Maximize the Navbar
             navbarContainer.style.height = '100%';
@@ -152,6 +158,9 @@ function Navbar() {
 
             // Display the Navigation Links
             navbarItemsContainer.style.animationName = 'showText';
+
+            // Display the copyright notice
+            copyrightNotice.style.animationName = 'showCopyright';
 
             // Display the External Links
             navbarLinks.style.animationName = 'showText';
@@ -162,6 +171,7 @@ function Navbar() {
             let navbarItemsContainer = document.querySelector('.nav_items_container');
             let navbarIcon = document.querySelector('.navbar_open_icon');
             let navbarLinks = document.querySelector('.navbar_external_links');
+            let copyrightNotice = document.querySelector('.copyright-notice-mobile');
 
             // Minimize the Navbar
             navbarContainer.style.height = '80px';
@@ -171,6 +181,9 @@ function Navbar() {
 
             // Hide the Navigation Links
             navbarItemsContainer.style.animationName = 'hideText';
+
+            // Hide the copyright notice
+            copyrightNotice.style.animationName = 'hideCopyright';
 
             // Hide the External Links
             navbarLinks.style.animationName = 'hideText';
@@ -306,6 +319,11 @@ function Footer() {
                     icon={faGithub}
                 />
             </div>
+            <a 
+                className="copyright-notice" 
+                href='https://github.com/JustScott/JustScottPortfolio/blob/main/LICENSE'
+                > Copyright (c) 2022 Scott
+            </a>
         </div>
     );
 

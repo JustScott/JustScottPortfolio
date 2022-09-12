@@ -61,6 +61,22 @@ body {
         #error_message {
             @include dialog-box(red, white);
         }
+        
+        .copyright-notice-desktop {
+            @include font(calc($small-font - 2px), bold);
+            color: $text;
+            text-align: center;
+            
+            position: absolute;
+            bottom: 10px;
+            
+            transition-duration: .1s;
+
+            &:hover {
+                color: $contrast;
+                transform: scale(1.02);
+            }
+        }
     }
 
     /* Mobile */
@@ -117,6 +133,45 @@ body {
                     &:hover {
                         transform: scale(.97);
                         color: $contrast;
+                    }
+                }
+            }
+            .copyright-notice-mobile {
+                @include font(calc($small-font), bold);
+                color: $text;
+                text-align: center;
+                
+                position: absolute;
+                bottom: -100%;
+                
+                transition-duration: .1s;
+    
+                &:hover {
+                    color: $contrast;
+                    transform: scale(1.02);
+                }
+
+                animation-duration: .3s;
+                animation-timing-function: linear;
+                animation-iteration-count: 1;
+                animation-fill-mode: forwards;
+
+                @keyframes showCopyright {
+                    from {
+                        bottom: -100%;
+                    }
+                    to {
+                        bottom: 4px;
+                        right: 10px;
+                    }
+                }
+                @keyframes hideCopyright {
+                    from {
+                        bottom: 4px;
+                        right: 10px;
+                    }
+                    to {
+                        bottom: -100%;
                     }
                 }
             }
@@ -631,8 +686,10 @@ body {
         .footer {
             position: relative;
             display: flex;
+            flex-direction: column;
             justify-content: center;
             align-items: center;
+            gap: 20px;
             overflow-x: hidden;
             width: 100vw;
             height: 200px;

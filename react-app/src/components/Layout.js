@@ -320,7 +320,7 @@ function Footer() {
                 />
             </div>
             <a 
-                className="copyright-notice" 
+                className="copyright-notice-desktop" 
                 href='https://github.com/JustScott/JustScottPortfolio/blob/main/LICENSE'
                 > Copyright (c) 2022 Scott
             </a>

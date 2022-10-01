@@ -13,7 +13,7 @@ function middleware() {
   app.use(cookieParser());
   app.use(express.static(path.join(__dirname, 'public')));
   app.use(cors({
-      origion: ['http://192.168.1.1'],
+      origin: ['https://www.scottwyman.me','https://scottwyman.me'],
       methods: ['Post'],
       credentials:  true
   }));

@@ -1,23 +1,28 @@
 version: "3"
 services:
-  Website:
-    build: ./react-app
-    image: website
+  NginxWebServer:
+    build: ./nginx-web-server
+    image: nginx-web-server
     ports:
-      - "801:3000"
+      - "80:80"
     restart: unless-stopped
     networks:
       justscottportfolio_website:
         ipv4_address: "192.168.1.1"
-  WebsiteAPI:
-    build: ./express-app
-    image: website_api
-    ports:
-      - "901:5000"
+  Website:
+    build: ./react-app
+    image: website
     restart: unless-stopped
     networks:
       justscottportfolio_website:
         ipv4_address: "192.168.1.2"
+  WebsiteAPI:
+    build: ./express-app
+    image: website_api
+    restart: unless-stopped
+    networks:
+      justscottportfolio_website:
+        ipv4_address: "192.168.1.3"
 
 networks:
   justscottportfolio_website:

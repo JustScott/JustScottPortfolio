@@ -1,0 +1,27 @@
+version: "3"
+services:
+  Website:
+    build: ./react-app
+    image: website
+    ports:
+      - "801:3000"
+    restart: unless-stopped
+    networks:
+      justscottportfolio_website:
+        ipv4_address: "192.168.1.1"
+  WebsiteAPI:
+    build: ./express-app
+    image: website_api
+    ports:
+      - "901:5000"
+    restart: unless-stopped
+    networks:
+      justscottportfolio_website:
+        ipv4_address: "192.168.1.2"
+
+networks:
+  justscottportfolio_website:
+    ipam:
+      driver: default
+      config:
+        - subnet: "192.168.1.0/10"

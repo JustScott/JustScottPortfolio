@@ -1,5 +1,4 @@
 const express = require('express');
-const axios = require('axios');
 const nodemailer = require('nodemailer');
 const fs = require('fs');
 const path = require('path');
@@ -36,7 +35,7 @@ function sendEmail(sendersEmail, subject, body) {
 }
 
 
-router.post('/contact', (req, res) => {
+router.post('/', (req, res) => {
     data = req.body; // JavaScript object containing the parse JSON
 
     sendEmail(data.sendersEmail, data.subject, data.body);

@@ -7,6 +7,7 @@ services:
       - "80:80"
     restart: unless-stopped
     volumes:
+      - "./nginx:/etc/nginx"
       - "./letsencrypt:/etc/letsencrypt"
     networks:
       justscottportfolio_website:
@@ -23,7 +24,8 @@ services:
     image: website_api
     restart: unless-stopped
     volumes:
-      - ".env:.env"
+      - "./express-app/.env:~/express-app/.env"
+      - "./react-app/.env:~/react-app/.env"
     networks:
       justscottportfolio_website:
         ipv4_address: "192.168.1.3"

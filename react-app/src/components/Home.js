@@ -42,18 +42,17 @@ function Intro() {
     return (
         <div className='intro_section' id='intro_section'>
             <img src='headshot.png' alt='Me' className='intro_img_mobile'/>
-            <img src='bodyshot.jpg' alt='Me' className='intro_img_desktop' onLoad={ () => {
+            <img src='headshot.png' alt='Me' className='intro_img_desktop' onLoad={ () => {
                 setTimeout( () => {
                     document.querySelector('.loading-screen').style.animationName = 'close_loading_screen';
                 }, 700)
             }}/>
             <div className='text_side'>
                 <p className='desktop_about_text'>
-                    I'm <b>Scott</b>, a <b>Full Stack Web Developer</b> utilizing <b>React</b> and <b>NodeJS</b> to create  
-                    <b> Modern</b> and <b>Fast</b>, <b>Minimalistic</b> websites.
+                    I'm <b>Scott</b>, a <b>Full Stack Web Developer</b>, <b>Python Developer</b> and <b>Linux</b> enthusiast.
                 </p>
                 <p className='mobile_about_text'>
-                    I'm <b>Scott</b>. I create <b> Modern</b> and <b>Fast</b>, <b>Minimalistic</b> websites.
+                    I'm <b>Scott</b>, a <b>Full Stack Web Developer</b>, <b>Python Developer</b> and <b>Linux</b> enthusiast.
                 </p>
                 <button onClick={() => {window.print()}}>Resume</button>
             </div>
@@ -174,10 +173,10 @@ function Projects() {
         }}>
             <i className='floating_arrow' id='floating_arrow'><FontAwesomeIcon icon={faArrowRightLong}/></i>
             <Project 
-                title='JustScottPortfolio' 
+                title='PortfolioWebsite' 
                 description='This is the website your currently on!'
                 icon={faDisplay}
-                homeLink='https://www.github.com/JustScott/JustScottPortfolio'
+                homeLink='https://www.github.com/JustScott/PortfolioWebsite'
                 homeIcon={faGithub}
                 callToActionMobile={<p className='mobile-project-click-box'>Click To Learn More <FontAwesomeIcon icon={faHandPointUp}/></p>}
                 callToActionDesktop={<p className='desktop-project-hover-box'>Hover To Learn More <FontAwesomeIcon icon={faHandPointUp}/></p>}

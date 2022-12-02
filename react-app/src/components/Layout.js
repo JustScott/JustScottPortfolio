@@ -64,7 +64,7 @@ function Navbar() {
                 <ExternalLinks />
                     <a 
                     className="copyright-notice-mobile" 
-                    href='https://github.com/JustScott/JustScottPortfolio/blob/main/LICENSE'
+                    href='https://github.com/JustScott/PortfolioWebsite/blob/main/LICENSE'
                     > Copyright (c) 2022 Scott
                 </a>
 
@@ -321,7 +321,7 @@ function Footer() {
             </div>
             <a 
                 className="copyright-notice-desktop" 
-                href='https://github.com/JustScott/JustScottPortfolio/blob/main/LICENSE'
+                href='https://github.com/JustScott/PortfolioWebsite/blob/main/LICENSE'
                 > Copyright (c) 2022 Scott
             </a>
         </div>

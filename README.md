@@ -1,6 +1,6 @@
 # <p align='center'>JustScottPortfolio</p>
 <p align='center'>My Personal Portfolio Website.</p>
-<p align='center'><a href='https://www.justscott.me'>Visit it Here</a></p>
+<p align='center'><a href='https://www.scottwyman.me'>Visit it Here</a></p>
 <br>
 <br>
 

@@ -225,10 +225,6 @@ function Contact() {
                             <input type='text' className='contact_info_text' id='email' size='19' readOnly value='business@scottwyman.me'/> 
                             <FontAwesomeIcon icon={faCopy}/>
                         </span>
-                        <span className='contact_info_item' onClick={() => base.copyText('number')}>
-                            <input type='text' className='contact_info_text' id='number' size='10' readOnly value='402-270-9644'/>
-                            <FontAwesomeIcon icon={faCopy}/>
-                        </span>
                     </div>
                     <input type='text' className='contact_input' id='sendersEmail' placeholder='Your Contact Info...' maxLength='400' required />
                     <input type='text' id='subject' className='contact_input' placeholder='Subject...' maxLength='200' required />

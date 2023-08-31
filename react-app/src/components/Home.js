@@ -74,12 +74,12 @@ function Skills() {
                     {description}
                 </div>
                 <img src='python_logo.png' alt='Python Logo' onClick={() => {updateText('Python')}}/>
-                <img src='node_logo.png' alt='Node Logo' onClick={() => {updateText('Node')}}/>
-                <img src='react_logo.png' alt='React Logo' onClick={() => {updateText('React')}}/>
+                <img src='web-development.svg' alt='Node Logo' onClick={() => {updateText('Web Development')}}/>
+                <img src='fastapi.svg' alt='React Logo' onClick={() => {updateText('FastAPI')}}/>
                 <img src='sass_logo.png' alt='Sass Logo' onClick={() => {updateText('Sass')}}/>
-                <img src='mysql_logo.png' alt='MySQL Logo' onClick={() => {updateText('MySQL')}}/>
-                <img src='mongodb_logo.png' alt='MongoDB Logo' onClick={() => {updateText('MongoDB')}}/>
-                <img src='aws_logo.png' alt='AWS Logo' onClick={() => {updateText('AWS')}}/>
+                <img src='mariadb.svg' alt='MySQL Logo' onClick={() => {updateText('MariaDB')}}/>
+                <img src='c-original.svg' alt='MongoDB Logo' onClick={() => {updateText('C')}}/>
+                <img src='linode.svg' alt='AWS Logo' onClick={() => {updateText('Linode')}}/>
                 <img src='linux_logo.png' alt='Linux Logo' onClick={() => {updateText('Linux')}}/>
             </div>
         </div>
@@ -89,36 +89,43 @@ function Skills() {
         const skills = {
             'Python':  
                 <p className='selected_item_text'>
-                    <b>Python</b> was my first and favorite language. I have multiple packages available 
-                    on my <b><a href='https://pypi.org/user/JustScott/'>PYPI Account</a></b>.
+                    <b>Python</b> is by far my favorite programming language. I've developed 
+                    many applcations and modules available through my <b><a href='https://pypi.org/user/JustScott/'>PYPI Account</a></b>. 
                 </p>,
-            'Node': 
+            'Web Development': 
                 <p className='selected_item_text'>
-                    <b>Node</b> allows me to create fast, asynchronus API's.
+                    I started in <b>Web Development</b> with react, but have since then had a change
+                    in my programming philosophy towards using a more minimalist tech stack. Now I use
+                    FastAPI & Caddy on the backend, with HTML, SCSS, and JavaScript on the frontend.
                 </p>,
-            'React': 
+            'FastAPI': 
                 <p className='selected_item_text'>
-                    <b>React</b> is my go-to tool for front-end development!
+                    <b>FastAPI</b> is my tool of choice for building APIs as it's fast both in
+                    terms of performance and development time.
                 </p>,
             'Sass': 
                 <p className='selected_item_text'>
                     <b>Sass</b> makes my css development much more efficient.
                 </p>,
-            'MySQL': 
+            'MariaDB': 
                 <p className='selected_item_text'>
-                    <b>MySQL</b> has been my primary databasing tool for python projects.
+                    <b>Mariadb</b> has been my primary databasing tool for python projects because of
+                    its speed and simplicity.
                 </p>,
-            'MongoDB': 
+            'C':
                 <p className='selected_item_text'>
-                    I'm relatively new to <b>MongoDB</b>, but am quickly catching on as I use it in my new projects.
+                    I'm very new to <b>C</b>, but am currently learning it so that I can contribute 
+                    to open source low-level software projects that I use daily.
                 </p>,
-            'AWS': 
+            'Linode': 
                 <p className='selected_item_text'>
-                    I'm currently working towards the <b>AWS Cloud Practitioner</b> certification!
+                    I use to preffer AWS, but I find it hard to feel like I'm keeping my cloud secure with
+                    how incredibly complicated there 'features' and UI are. Since then I've moved to Linode
+                    which provides a much more minimalist UI and robust feature set.
                 </p>,
             'Linux': 
                 <p className='selected_item_text'>
-                    I've used <b>Linux</b> as a daily driver for years now, it's an <b>integral</b> part of my workflow!
+                    I've developed tools for, and used <b>Linux</b> as a daily driver for years now.
                 </p>,
         }
 

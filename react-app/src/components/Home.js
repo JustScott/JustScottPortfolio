@@ -1,19 +1,21 @@
-z* Third Party Imports */
+/* Third Party Imports */
 import React, { useEffect, useState } from 'react';
 
 /* Icon Imports */
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import 
-    { 
-        faArrowRightLong,
-        faLock,
-        faLinux,
-        faFlagCheckered,
-        faDisplay,
-        faClock,
-        faHandPointUp,
-    } 
-    from "@fortawesome/free-solid-svg-icons";
+import { 
+    faArrowRightLong,
+    faLock,
+    faFlagCheckered,
+    faDisplay,
+    faClock,
+    faHandPointUp,
+} from "@fortawesome/free-solid-svg-icons";
+
+import { 
+    faLinux,
+} from "@fortawesome/free-brands-svg-icons";
+
 
 
 import { faGithub } from "@fortawesome/free-brands-svg-icons";
@@ -21,7 +23,7 @@ import { faGithub } from "@fortawesome/free-brands-svg-icons";
 import animations from '../scripts/inViewAnimation';
 
 /* Styles */
-import '../static/scss/home.scss'
+import '../static/scss/home.scss';
 
 
 export default class Home extends React.Component {

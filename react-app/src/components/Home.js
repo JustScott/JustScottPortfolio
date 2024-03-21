@@ -100,23 +100,20 @@ function Skills() {
                 </p>,
             'C++':
                 <p className='selected_item_text'>
-                    I've been tinkering with <b>C++</b> so I can contribute upstream to 
-                    <a href="https://github.com/InfiniTimeOrg/InfiniTime">Infinitime</a>, an
-                    open source firmware for the <a href="https://wiki.pine64.org/index.php/PineTime">pinetime</a>
-                    smartwatch. I've also got my own fork that I run on my pinetime,
-                    <a href="https://github.com/JustScott/InfiniTime">here</a>.
+                    I've been tinkering with <b>C++</b> so I can contribute upstream 
+                    to <a href="https://github.com/InfiniTimeOrg/InfiniTime">Infinitime</a>, an
+                    open source firmware for the <a href="https://wiki.pine64.org/index.php/PineTime">pinetime</a> smartwatch. 
+                    I've also got my own fork that I run on my pinetime, <a href="https://github.com/JustScott/InfiniTime">here</a>.
                 </p>,
             'Rust':
                 <p className='selected_item_text'>
-                    I tried <b>Rust</b> in the past... but I couldn't get into. However, now that
-                    I'm starting to understand low level memory management risks, and how amazing it is to
-                    have a build tool like cargo, I'm learning rust as fast as I can.
+                    As I've gained more experience with a wide variety of languages, <b>Rust</b> has
+                    quickly became my favorite for its safety, expressiveness, and amazing build tool.
                 </p>,
             'Linode': 
                 <p className='selected_item_text'>
-                    I used to prefer AWS, but I find it hard to feel like I'm keeping my cloud secure with
-                    how incredibly large their attack surface is. Since then I've moved to Linode, which
-                    provides a much more minimalist UI and robust feature set.
+                    <b>Linode</b> provides a much more minimalist UI and robust feature set than 
+                    something like AWS, which I find important for effectively securing cloud infrastructure.
                 </p>,
             'Linux': 
                 <p className='selected_item_text'>
@@ -125,8 +122,8 @@ function Skills() {
             'Bash': 
                 <p className='selected_item_text'>
                     For a long time I had primarily used <b>Python</b> for my scripting 
-                    needs, but a few months ago I discovered just how powerful <b>BASH</b>
-                    can be, and have now nearly converted all my scripts to it.
+                    needs, but a few months ago I discovered just how powerful 
+                    <b>BASH</b> can be, and have now nearly converted all my scripts to it.
                 </p>,
         }
 
@@ -218,15 +215,8 @@ function Projects() {
                 homeIcon={faGithub}
             />
             <Project 
-                title='Ccheckers'
-                description='A simple checkers engine written in C, to teach me the basics of C' 
-                icon={faFlagCheckered}
-                homeLink='https://www.github.com/JustScott/Ccheckers'
-                homeIcon={faGithub}
-            />
-            <Project 
                 title='Infinitime'
-                description={<p>My own customized fork of <a href='https://github.com/InfiniTimeOrg/InfiniTime'>Infinitime's</a></p>}
+                description={<p>My own customized fork of <a href='https://github.com/InfiniTimeOrg/InfiniTime'>Infinitime</a></p>}
                 icon={faClock}
                 homeLink='https://www.github.com/JustScott/Infinitime'
                 homeIcon={faGithub}

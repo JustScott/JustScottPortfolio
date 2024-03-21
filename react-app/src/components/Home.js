@@ -1,4 +1,4 @@
-/* Third Party Imports */
+z* Third Party Imports */
 import React, { useEffect, useState } from 'react';
 
 /* Icon Imports */
@@ -6,10 +6,11 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import 
     { 
         faArrowRightLong,
-        faLock, 
-        faWifi,
+        faLock,
+        faLinux,
+        faFlagCheckered,
         faDisplay,
-        faKey,
+        faClock,
         faHandPointUp,
     } 
     from "@fortawesome/free-solid-svg-icons";
@@ -49,10 +50,10 @@ function Intro() {
             }}/>
             <div className='text_side'>
                 <p className='desktop_about_text'>
-                    I'm <b>Scott</b>, a <b>Full Stack Web Developer</b>, <b>Python Developer</b> and <b>Linux</b> enthusiast.
+                    I'm <b>Scott</b>, a previously high-level only developer, but I'm now diving into low level development.
                 </p>
                 <p className='mobile_about_text'>
-                    I'm <b>Scott</b>, a <b>Full Stack Web Developer</b>, <b>Python Developer</b> and <b>Linux</b> enthusiast.
+                    I'm <b>Scott</b>, a previously high-level only developer, but I'm now diving into low level development.
                 </p>
                 <button onClick={() => {window.print()}}>Resume</button>
             </div>
@@ -74,13 +75,12 @@ function Skills() {
                     {description}
                 </div>
                 <img src='python_logo.png' alt='Python Logo' onClick={() => {updateText('Python')}}/>
-                <img src='web-development.svg' alt='Node Logo' onClick={() => {updateText('Web Development')}}/>
-                <img src='fastapi.svg' alt='React Logo' onClick={() => {updateText('FastAPI')}}/>
-                <img src='sass_logo.png' alt='Sass Logo' onClick={() => {updateText('Sass')}}/>
-                <img src='mariadb.svg' alt='MySQL Logo' onClick={() => {updateText('MariaDB')}}/>
-                <img src='c-original.svg' alt='MongoDB Logo' onClick={() => {updateText('C')}}/>
-                <img src='linode.svg' alt='AWS Logo' onClick={() => {updateText('Linode')}}/>
+                <img src='c-original.svg' alt='C Logo' onClick={() => {updateText('C')}}/>
+                <img src='c-original.svg' alt='C++ Logo' onClick={() => {updateText('C++')}}/>
+                <img src='c-original.svg' alt='Rust Logo' onClick={() => {updateText('Rust')}}/>
+                <img src='linode.svg' alt='Linode Logo' onClick={() => {updateText('Linode')}}/>
                 <img src='linux_logo.png' alt='Linux Logo' onClick={() => {updateText('Linux')}}/>
+                <img src='linux_logo.png' alt='Bash Logo' onClick={() => {updateText('Bash')}}/>
             </div>
         </div>
     );
@@ -89,43 +89,42 @@ function Skills() {
         const skills = {
             'Python':  
                 <p className='selected_item_text'>
-                    <b>Python</b> is by far my favorite programming language. I've developed 
-                    many applcations and modules available through my <b><a href='https://pypi.org/user/JustScott/'>PYPI Account</a></b>. 
-                </p>,
-            'Web Development': 
-                <p className='selected_item_text'>
-                    I started in <b>Web Development</b> with react, but have since then had a change
-                    in my programming philosophy towards using a more minimalist tech stack. Now I use
-                    FastAPI & Caddy on the backend, with HTML, SCSS, and JavaScript on the frontend.
-                </p>,
-            'FastAPI': 
-                <p className='selected_item_text'>
-                    <b>FastAPI</b> is my tool of choice for building APIs as it's fast both in
-                    terms of performance and development time.
-                </p>,
-            'Sass': 
-                <p className='selected_item_text'>
-                    <b>Sass</b> makes my css development much more efficient.
-                </p>,
-            'MariaDB': 
-                <p className='selected_item_text'>
-                    <b>Mariadb</b> has been my primary databasing tool for python projects because of
-                    its speed and simplicity.
+                    <b>Python</b> has been my favorite programming language for years now
+                    because of its dead simple syntax and incredible flexibility.
                 </p>,
             'C':
                 <p className='selected_item_text'>
-                    I'm very new to <b>C</b>, but am currently learning it so that I can contribute 
-                    to open source low-level software projects that I use daily.
+                    I'm currently using <b>C</b> to learn about low level memory management.
+                </p>,
+            'C++':
+                <p className='selected_item_text'>
+                    I've been tinkering with <b>C++</b> so I can contribute upstream to 
+                    <a href="https://github.com/InfiniTimeOrg/InfiniTime">Infinitime</a>, an
+                    open source firmware for the <a href="https://wiki.pine64.org/index.php/PineTime">pinetime</a>
+                    smartwatch. I've also got my own fork that I run on my pinetime,
+                    <a href="https://github.com/JustScott/InfiniTime">here</a>.
+                </p>,
+            'Rust':
+                <p className='selected_item_text'>
+                    I tried <b>Rust</b> in the past... but I couldn't get into. However, now that
+                    I'm starting to understand low level memory management risks, and how amazing it is to
+                    have a build tool like cargo, I'm learning rust as fast as I can.
                 </p>,
             'Linode': 
                 <p className='selected_item_text'>
-                    I use to preffer AWS, but I find it hard to feel like I'm keeping my cloud secure with
-                    how incredibly complicated there 'features' and UI are. Since then I've moved to Linode
-                    which provides a much more minimalist UI and robust feature set.
+                    I used to prefer AWS, but I find it hard to feel like I'm keeping my cloud secure with
+                    how incredibly large their attack surface is. Since then I've moved to Linode, which
+                    provides a much more minimalist UI and robust feature set.
                 </p>,
             'Linux': 
                 <p className='selected_item_text'>
                     I've developed tools for, and used <b>Linux</b> as a daily driver for years now.
+                </p>,
+            'Bash': 
+                <p className='selected_item_text'>
+                    For a long time I had primarily used <b>Python</b> for my scripting 
+                    needs, but a few months ago I discovered just how powerful <b>BASH</b>
+                    can be, and have now nearly converted all my scripts to it.
                 </p>,
         }
 
@@ -189,24 +188,45 @@ function Projects() {
                 callToActionDesktop={<p className='desktop-project-hover-box'>Hover To Learn More <FontAwesomeIcon icon={faHandPointUp}/></p>}
             />
             <Project 
-                title='SuperSockets'
-                description="SuperSockets is an easy to use implementation of python's socket library, and includes built in encryption!"
-                icon={faWifi}
-                homeLink='https://www.github.com/JustScott/SuperSockets'
+                title='MiniArch'
+                description="A minimal CLI Arch Linux installer"
+                icon={faLinux}
+                homeLink='https://www.github.com/JustScott/MiniArch'
                 homeIcon={faGithub}
             />
             <Project 
-                title='ListCrypt'
-                description='ListCrypt is a custom cryptographic algorithm I developed in Python3'
+                title='Arch-Setup'
+                description="A group of smart scripts for setting up my various Arch Linux environemnts for my different use cases"
+                icon={faLinux}
+                homeLink='https://www.github.com/JustScott/Arch-Setup'
+                homeIcon={faGithub}
+            />
+            <Project 
+                title='Arch-Configurations'
+                description="All my configuration and dotfiles, with a smart installation script"
+                icon={faLinux}
+                homeLink='https://www.github.com/JustScott/Arch-Configurations'
+                homeIcon={faGithub}
+            />
+            <Project 
+                title='MFA'
+                description="A TOTP MFA client for Linux, written in Python"
                 icon={faLock}
-                homeLink='https://www.github.com/JustScott/ListCrypt'
+                homeLink='https://www.github.com/JustScott/mfa'
                 homeIcon={faGithub}
             />
             <Project 
-                title='RapidRSA' 
-                description={<p>RapidRSA is an easier to use implementation of <a href='https://github.com/Legrandin/pycryptodome'>pycryptodome's</a> RSA module</p>}
-                icon={faKey}
-                homeLink='https://www.github.com/JustScott/RapidRSA'
+                title='Ccheckers'
+                description='A simple checkers engine written in C, to teach me the basics of C' 
+                icon={faFlagCheckered}
+                homeLink='https://www.github.com/JustScott/Ccheckers'
+                homeIcon={faGithub}
+            />
+            <Project 
+                title='Infinitime'
+                description={<p>My own customized fork of <a href='https://github.com/InfiniTimeOrg/InfiniTime'>Infinitime's</a></p>}
+                icon={faClock}
+                homeLink='https://www.github.com/JustScott/Infinitime'
                 homeIcon={faGithub}
             />
         </div>

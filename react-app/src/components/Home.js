@@ -52,10 +52,14 @@ function Intro() {
             }}/>
             <div className='text_side'>
                 <p className='desktop_about_text'>
-                    I'm <b>Scott</b>, a previously high-level only developer, but I'm now diving into low level development.
+                     Python, Rust, C, Bash, Linux, Love for the terminal & 
+                     minimalist software... need I say more? I'm very adaptable
+                     and open to learning any language or tech stack.
                 </p>
                 <p className='mobile_about_text'>
-                    I'm <b>Scott</b>, a previously high-level only developer, but I'm now diving into low level development.
+                    Python, Rust, C, Bash, Linux, Love for the terminal & 
+                    minimalist software... need I say more? I'm very adaptable
+                    and open to learning any language or tech stack.                
                 </p>
                 <button onClick={() => {window.print()}}>Resume</button>
             </div>
@@ -122,8 +126,8 @@ function Skills() {
             'Bash': 
                 <p className='selected_item_text'>
                     For a long time I had primarily used <b>Python</b> for my scripting 
-                    needs, but a few months ago I discovered just how powerful 
-                    <b>BASH</b> can be, and have now nearly converted all my scripts to it.
+                    needs, but a few months ago I discovered just how powerful <b>BASH</b> can  
+                    be, and have now nearly converted all my scripts to it.
                 </p>,
         }
 
